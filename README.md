@@ -12,7 +12,10 @@ Need to document process for merging content.. whos doing it whos allowed etc..
 I've created the initial project directory, we should make an empty OpenPicus project named "AirfishBowl", merge it then with the directory ive added. It contains the source code for adding a new task to the OS...
 
 
+### Forum
+Please sign up to the following forum so that we may all have an easy means of communication.
 
+http://zalifer.com/airfish/index.php
 
 
 ### Github Pages
