@@ -27,6 +27,10 @@ Special thanks to Andrea Seraghiti for the support in development.
 #include "taskTCPIP.h"
 #include "taskFlyport.h"
 #include "taskElectronicsWIT.h"
+#include "taskElectronicsWIT2.h"
+#include "taskElectronicsWIT3.h"
+#include "taskElectronicsWIT4.h"
+#include "taskElectronicsWIT5.h"
 
 #include "ARPlib.h"
 /*****************************************************************************
@@ -134,13 +138,18 @@ xTaskHandle hTCPIPTask;
 xTaskHandle hFlyTask;
 xTaskHandle hTimerTask;
 
-// THIS IS OUR TASK HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-xTaskHandle hAppliedTask;
+// THIS ARE OUR TASK HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+xTaskHandle hElectronicsTask;
+xTaskHandle hElectronicsTask2;
+xTaskHandle hElectronicsTask3;
+xTaskHandle hElectronicsTask4;
+xTaskHandle hElectronicsTask5;
+// THIS ARE OUR TASK HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 xQueueHandle xQueue;
 xSemaphoreHandle xSemFrontEnd = NULL;
-xSemaphoreHandle xAppliedRealTimeOperatingSystemsTask = NULL;
 xSemaphoreHandle xSemHW = NULL;
 portBASE_TYPE xStatus;
 
@@ -246,14 +255,8 @@ void CmdCheck()
 int main(void)
 {
 	//	Queue creation - will be used for communication between the stack and other tasks
-	xQueue = xQueueCreate(4, sizeof (int));
-	// I upped this from 3 to 4 to accomodate our new task
-	
-
+	xQueue = xQueueCreate(3, sizeof (int));
 	xSemFrontEnd = xSemaphoreCreateMutex();
-	
-	// Instanciated our task
-	xAppliedRealTimeOperatingSystemsTask = xSemaphoreCreateMutex();
 	
 	// Initialize application specific hardware
 	HWInit(HWDEFAULT);
@@ -263,8 +266,7 @@ int main(void)
 	uartinit(1,19200);
 	uarton(1);
 	uartwrite(1, "Flyport starting...");
-	#endif	
-
+	#endif
 	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
@@ -273,10 +275,25 @@ int main(void)
 		xTaskCreate(TCPIPTask, (signed char*) "TCP", STACK_SIZE_TCPIP,
 		NULL, tskIDLE_PRIORITY + 1, &hTCPIPTask);
 	
-		// This adds our task to the queue
-		xTaskCreate(AppliedRealTimeTask, (signed char*) "AIRFISH", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hAppliedTask);
 	
+		//-------------------------------------------------------------------------------------------
+		xTaskCreate(ElectronicsWITTask, (signed char*) "AIRFISH", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask);
+		
+		xTaskCreate(ElectronicsWITTask2, (signed char*) "AIRFISH2", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask2);
+		
+		xTaskCreate(ElectronicsWITTask3, (signed char*) "AIRFISH3", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask3);
+		
+		xTaskCreate(ElectronicsWITTask4, (signed char*) "AIRFISH4", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask4);
+		
+		xTaskCreate(ElectronicsWITTask5, (signed char*) "AIRFISH5", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask5);
+		//-------------------------------------------------------------------------------------------
+
+		
 		// Start of the RTOS scheduler, this function should never return
 		vTaskStartScheduler();
 	}
