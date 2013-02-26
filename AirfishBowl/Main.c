@@ -26,6 +26,7 @@ Special thanks to Andrea Seraghiti for the support in development.
 
 #include "taskTCPIP.h"
 #include "taskFlyport.h"
+#include "utilitiesElectronicsWIT.h"
 #include "taskElectronicsWIT.h"
 #include "taskElectronicsWIT2.h"
 #include "taskElectronicsWIT3.h"
@@ -138,14 +139,23 @@ xTaskHandle hTCPIPTask;
 xTaskHandle hFlyTask;
 xTaskHandle hTimerTask;
 
-// THIS ARE OUR TASK HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 xTaskHandle hElectronicsTask;
 xTaskHandle hElectronicsTask2;
 xTaskHandle hElectronicsTask3;
 xTaskHandle hElectronicsTask4;
 xTaskHandle hElectronicsTask5;
-// THIS ARE OUR TASK HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+// Our QUEUES
+xQueueHandle xQueueForTask1;
+xQueueHandle xQueueForTask2;
+xQueueHandle xQueueForTask3;
+xQueueHandle xQueueForTask4;
+xQueueHandle xQueueForTask5;
+
+// The Queues
+ElectronicsWITQueueStruct ourQueueStruct;
+// THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 xQueueHandle xQueue;
@@ -268,6 +278,23 @@ int main(void)
 	uartwrite(1, "Flyport starting...");
 	#endif
 	
+//---------------------------------------------------------------------------------------------------------------------	
+	xQueueForTask1 = xQueueCreate(2, sizeof (int));
+	xQueueForTask2 = xQueueCreate(2, sizeof (int));
+	xQueueForTask3 = xQueueCreate(2, sizeof (int));
+	xQueueForTask4 = xQueueCreate(2, sizeof (int));
+	xQueueForTask5 = xQueueCreate(2, sizeof (int));
+	
+	// Init the queue
+	int var = 1;
+	xQueueSendToBack(xQueueForTask1, ( void * ) &var, ( portTickType ) 50);
+	
+	ourQueueStruct.one = &xQueueForTask1;
+	ourQueueStruct.two = &xQueueForTask2;
+	ourQueueStruct.three = &xQueueForTask3;
+	ourQueueStruct.four = &xQueueForTask4;
+	ourQueueStruct.five = &xQueueForTask5;
+	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
 	{
@@ -276,7 +303,7 @@ int main(void)
 		NULL, tskIDLE_PRIORITY + 1, &hTCPIPTask);
 	
 	
-		//-------------------------------------------------------------------------------------------
+		// Launch our tasks -------------------------------------------------------------------------------------------
 		xTaskCreate(ElectronicsWITTask, (signed char*) "AIRFISH", configMINIMAL_STACK_SIZE,
 		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask);
 		

@@ -2,17 +2,26 @@
 
 /*
 	Applied Electronics, Applied Operating Systems
-	David Kirwan, Patrick Cody
+	David Kirwan,
 */
 
 void ElectronicsWITTask2()
 {
+	int i;
 	while(1){
 		vTaskSuspendAll();	
 		UARTWrite(1,"vTaskSuspendAll task 2\r\n");
 		
-		IOPut(p19, toggle);
-		IOPut(p21, toggle);
+		i = 0;
+		
+		xQueueReceive(ourQueueStruct.two,&i,0);
+		
+		if(i == 1)
+		{
+			IOPut(p19, toggle);
+			IOPut(p21, toggle);
+			xQueueSendToBack(ourQueueStruct.three, ( void * ) &i, ( portTickType ) 50);
+		}
 		
 		vTaskDelay(100);
 		
