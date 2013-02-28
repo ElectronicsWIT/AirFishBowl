@@ -1,12 +1,11 @@
 ## AirFishBowl
 Who are we? What are we making?
 
-Write up some nice information and introduction for the project.. also why make this private repository ? Open this sucker up!
+Write up some nice information and introduction for the project!
 
 
 ### Contents
-I've created the initial project directory, we should make an empty OpenPicus project named "AirfishBowl", merge it then with the directory ive added. It contains the source code for adding a new task to the OS...
-
+Need to make a blank project, then merge current repo contents with it, then repush back to repo!
 
 ### Forum
 Please sign up to the following forum so that we may all have an easy means of communication.
