@@ -26,12 +26,12 @@ Special thanks to Andrea Seraghiti for the support in development.
 
 #include "taskTCPIP.h"
 #include "taskFlyport.h"
-#include "utilitiesElectronicsWIT.h"
+//#include "utilitiesElectronicsWIT.h"
 #include "taskElectronicsWIT.h"
 #include "taskElectronicsWIT2.h"
-#include "taskElectronicsWIT3.h"
-#include "taskElectronicsWIT4.h"
-#include "taskElectronicsWIT5.h"
+//#include "taskElectronicsWIT3.h"
+//#include "taskElectronicsWIT4.h"
+//#include "taskElectronicsWIT5.h"
 
 #include "ARPlib.h"
 /*****************************************************************************
@@ -142,19 +142,19 @@ xTaskHandle hTimerTask;
 // THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 xTaskHandle hElectronicsTask;
 xTaskHandle hElectronicsTask2;
-xTaskHandle hElectronicsTask3;
-xTaskHandle hElectronicsTask4;
-xTaskHandle hElectronicsTask5;
+//xTaskHandle hElectronicsTask3;
+//xTaskHandle hElectronicsTask4;
+//xTaskHandle hElectronicsTask5;
 
 // Our QUEUES
 xQueueHandle xQueueForTask1;
 xQueueHandle xQueueForTask2;
-xQueueHandle xQueueForTask3;
-xQueueHandle xQueueForTask4;
-xQueueHandle xQueueForTask5;
+//xQueueHandle xQueueForTask3;
+//xQueueHandle xQueueForTask4;
+//xQueueHandle xQueueForTask5;
 
 // The Queues
-ElectronicsWITQueueStruct ourQueueStruct;
+//ElectronicsWITQueueStruct ourQueueStruct;
 // THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -281,19 +281,19 @@ int main(void)
 //---------------------------------------------------------------------------------------------------------------------	
 	xQueueForTask1 = xQueueCreate(2, sizeof (int));
 	xQueueForTask2 = xQueueCreate(2, sizeof (int));
-	xQueueForTask3 = xQueueCreate(2, sizeof (int));
-	xQueueForTask4 = xQueueCreate(2, sizeof (int));
-	xQueueForTask5 = xQueueCreate(2, sizeof (int));
+	//xQueueForTask3 = xQueueCreate(2, sizeof (int));
+	//xQueueForTask4 = xQueueCreate(2, sizeof (int));
+	//xQueueForTask5 = xQueueCreate(2, sizeof (int));
 	
 	// Init the queue
 	int var = 1;
 	xQueueSendToBack(xQueueForTask1, ( void * ) &var, ( portTickType ) 50);
 	
-	ourQueueStruct.one = &xQueueForTask1;
-	ourQueueStruct.two = &xQueueForTask2;
-	ourQueueStruct.three = &xQueueForTask3;
-	ourQueueStruct.four = &xQueueForTask4;
-	ourQueueStruct.five = &xQueueForTask5;
+	//ourQueueStruct.one = &xQueueForTask1;
+	//ourQueueStruct.two = &xQueueForTask2;
+	//ourQueueStruct.three = &xQueueForTask3;
+	//ourQueueStruct.four = &xQueueForTask4;
+	//ourQueueStruct.five = &xQueueForTask5;
 	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
@@ -310,6 +310,7 @@ int main(void)
 		xTaskCreate(ElectronicsWITTask2, (signed char*) "AIRFISH2", configMINIMAL_STACK_SIZE,
 		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask2);
 		
+		/*
 		xTaskCreate(ElectronicsWITTask3, (signed char*) "AIRFISH3", configMINIMAL_STACK_SIZE,
 		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask3);
 		
@@ -318,6 +319,7 @@ int main(void)
 		
 		xTaskCreate(ElectronicsWITTask5, (signed char*) "AIRFISH5", configMINIMAL_STACK_SIZE,
 		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask5);
+		*/
 		//-------------------------------------------------------------------------------------------
 
 		
@@ -334,8 +336,67 @@ int main(void)
 }
 
 
+void ElectronicsWITTask()
+{
+	int i = 0;
+	char msg[20];
+	while(1){
+		vTaskSuspendAll();	
+		UARTWrite(1,"vTaskSuspendAll task 1\r\n");
+		
+		i = 0;
+		
+		
+		xQueueReceive(xQueueForTask1,&i,0);
+		
+		sprintf(msg, "Value %d\r\n", i);
+		UARTWrite(1, msg);
+		
+		if(i == 1)
+		{
+			IOPut(p19, toggle);
+			IOPut(p21, toggle);
+			xQueueSendToBack(xQueueForTask2, ( void * ) &i, ( portTickType ) 50);
+		}
+		
+		vTaskDelay(100);
+		
+		UARTWrite(1,"xTaskResumeAll task 1\r\n");
+		xTaskResumeAll();
+	}
+}
 
+void ElectronicsWITTask2()
+{
+	int i = 0;
+	char msg[20];
+	
+	while(1){
+		vTaskSuspendAll();	
+		UARTWrite(1,"vTaskSuspendAll task 2\r\n");
+		
+		i = 0;
 
+		
+		xQueueReceive(xQueueForTask2,&i,0);
+		
+		
+		sprintf(msg, "Value %d\r\n", i);
+		UARTWrite(1, msg);
+		
+		if(i == 1)
+		{
+			IOPut(p19, toggle);
+			IOPut(p21, toggle);
+			xQueueSendToBack(xQueueForTask1, ( void * ) &i, ( portTickType ) 50);
+		}
+		
+		vTaskDelay(100);
+		
+		UARTWrite(1,"xTaskResumeAll task 2\r\n");
+		xTaskResumeAll();
+	}
+}
 
 /*****************************************************************************
  FUNCTION 	TCPIPTask

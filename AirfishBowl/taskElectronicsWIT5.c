@@ -4,7 +4,7 @@
 	Applied Electronics, Applied Operating Systems
 	David Kirwan
 */
-
+/*
 void ElectronicsWITTask5()
 {
 	int i;
@@ -29,3 +29,4 @@ void ElectronicsWITTask5()
 		xTaskResumeAll();
 	}
 }
+*/
