@@ -1,0 +1,13 @@
+# README
+# This file is used to specify directories, files and filetypes to
+# ignore when commiting to the repo.
+
+###################################
+# Ignore Virtual Environment			#
+###################################
+vENV
+
+###################################
+# Ignore Compiled files						#
+###################################
+*.pyc
