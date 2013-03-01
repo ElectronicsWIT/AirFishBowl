@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Flyport online webserver</title>
+<link rel="shortcut icon" href="./images/logo_icon.ico" />
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/mchp.js"></script>
+</head>
+
+<body>
+<div id="content">
+	<div id="logo"><img src="images/Openpicus.jpg" alt="Picus" /> </div>
+	<!--
+	<table id="menu" border="0">
+		<tr>
+			<th class="active"></th>
+			<th class="active"><span class="key">H</span>ome</th>
+			<th class="active"></th>
+		</tr>
+	</table>
+	-->
+	<div id="intro_right">
+		<p class="white">Flyport WiFi module is online!</p>
+		<h1>Wireless Webserver</h1>
+		<p>Flyport Module is connected to your Wireless Lan. Ajax dinamic application shows on your left the status of Digital and Analog I/Os </p>
+		<p>You can customize and add graphic Plug-in to create your Automation or Sensor complete information web page </p>
+	</div>
+	<div id="status">
+		<div id="loading" style="display:none">Error:<br />Connection to Flyport control board was lost.</div>
+		<div id="display">
+			<span style="float:right;font-size:9px;font-weight:normal;padding-top:8px;text-indent:0px">(click to toggle)</span>
+			<p>Outputs:<br /><span class="leds">
+			<a id="led0" onclick="newAJAXCommand('leds.cgi?led=0');">&bull;</a>
+			<a id="led1" onclick="newAJAXCommand('leds.cgi?led=1');">&bull;</a>
+			<a id="led2" onclick="newAJAXCommand('leds.cgi?led=2');">&bull;</a>
+			<a id="led3" onclick="newAJAXCommand('leds.cgi?led=3');">&bull;</a>
+			<a id="led4" onclick="newAJAXCommand('leds.cgi?led=4');">&bull;</a>
+			
+			</span></p>
+			<p>Inputs:<br />
+			<span id="btn0">?</span> &nbsp;
+			<span id="btn1">?</span> &nbsp;
+			<span id="btn2">?</span> &nbsp;
+			<span id="btn3">?</span> &nbsp;
+			<span id="btn4">?</span></p>
+			<p>Analog in 1: <span id="pot0" style="font-weight:normal">?</span>
+			<div style=" width:204px; height:13px; background-color:#92b7d3;">
+				<div id ="bar1" style="width:90px; height:13px; background-color:#12365e; border-right:1px white solid;"></div>
+				<div style="margin-top:-15px; color:white; padding-left:4px;"><b>Analog IN1</b></div>
+			</div></p>
+			<p>Analog in 2: <span id="pot1" style="font-weight:normal">?</span>
+			<div style=" width:204px; height:13px; background-color:#92b7d3;">
+				<div id ="bar2" style="width:90px; height:13px; background-color:#12365e; border-right:1px white solid;"></div>
+				<div style="margin-top:-16px; color:white; padding-left:4px;"><b>Analog IN2</b></div>
+			</div></p>
+		</div>
+	</div>
+	<div id="right">
+		<div class="leftcol">
+			<h3>Real Time Monitor</h3>
+			<p>This application shows the power of openPICUS Framework. The module is running a simple application (realtime monitor) plus the TCP/IP stack.
+
+			</p>On the left box you see the current status of Digital inputs and Analog inputs. Thus you can activate Digital outputs </p>
+			<p> </p>
+			<h3>The power of Ajax</h3>
+			<p>You can integrate into the webpage some Ajax graphic plug-ins to have graphic visualization of Analog variables for example. 
+			It's also  possible to run Javascripts for example for data analisys routines directly from your browser.</p>		
+		</div>
+		
+		<div class="rightcol">
+			<h3>TCP/IP Settings</h3>
+			<p>openPICUS powered devices can be setted in DHCP or static mode. You can change this at runtime. Every new configuration can be handled in firmware execution.</p>
+			<p>You can also set a unique Host Name for an easy management of a complex Lan of Devices</p>
+			<p> </p>
+			
+			<h3>Remote Management</h3>
+			
+			<p>Webserver application is suitable in such applications where a central server is not necessary.</br>The application runs inside the module, so the user doesn't need to install extra software, only his favourite web browser. </p>
+		</div>
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	var mainstat = document.getElementById('display').style.display;
+	var loadstat = document.getElementById('loading').style.display;
+
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		mainstat = 'none';
+		loadstat = 'inline';	
+
+		return;
+	}
+
+	// Make sure we're displaying the status display
+	mainstat = 'inline';
+	loadstat = 'none';
+
+	// Loop over all the LEDs
+	for(i = 0; i < 5; i++)
+		document.getElementById('led' + i).style.color = (getXMLValue(xmlData, 'led' + i) == '1') ? '#ff8b00' : '#777';
+
+	// Loop over all the buttons
+	for(i = 0; i < 5; i++)
+		document.getElementById('btn' + i).innerHTML = (getXMLValue(xmlData, 'btn' + i) == 'up') ? '&Lambda;' : 'V';
+
+	// Update the POT value
+	for(i = 0; i < 2; i++)
+		document.getElementById('pot'+i).innerHTML = getXMLValue(xmlData, 'pot'+i);
+		
+	// Update for bargraph
+	for(i = 1; i < 3; i++)
+	{
+		var wd=0;
+		wd= (getXMLValue(xmlData, 'pot'+(i-1)))/5;
+		document.getElementById('bar'+i).style.width=wd+"px";
+	}
+		
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+
+	</div>
+	<div class="special">
+		<a href="http://www.openpicus.com/" title="Validate">Powered by openPICUS technology</a>
+	</div>
+</div>
+</body>
+</html>

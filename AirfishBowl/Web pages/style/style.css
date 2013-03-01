@@ -1,0 +1,225 @@
+/*
+
+	template: Artificial Intelligence
+	author: luka cvrk (www.solucija.com)
+	
+*/
+
+body { 
+	margin: 0; 
+	padding: 0; 
+	/*background: #fff url(../images/bg.gif) repeat-x;*/ 
+	font: normal .7em Tahoma, Verdana, Arial, Helvetica, Sans-Serif; 
+	line-height: 1.6em; 
+	color: #333; 
+}
+
+#configuration {
+	float: left; 
+	display: block;
+	margin-top: 0em;
+	margin-left: 0em;
+}
+
+#scanner {
+	float: right; 
+	display: block;
+	margin-top: 0em;
+	margin-right: 0em;
+}
+
+/* LINKS AND HEADINGS STYLING */
+h1  { font: bold 2em "Trebuchet MS", Helvetica, Sans-Serif; margin: 0; color: #fff; background-color:transparent; }
+h2  { font: bold 1.4em "Trebuchet MS", Helvetica, Sans-Serif; }
+h3 { clear: both; font-size: 1.1em; color: #000; background: #fff url(../images/h3bg.gif) no-repeat center left; padding: 0 14px; margin: 0;}
+
+/* CONTENT WRAPPER */
+#content { 
+	width: 900px; 
+	margin: 0px auto 0px auto; 
+}
+
+/* TOP LEFT LOGO */
+
+#logo { 
+	float: left; 
+	padding: 10px 0 3px 0px; 
+}
+	#logo h1 { color: #000; background: #fff; }
+
+/* TOP RIGHT HORIZONTAL MENU */
+	
+#menu { 
+	float: right; 
+	background: #fff url(../images/barul.gif) no-repeat bottom right; 
+	color: #808080; 
+	padding: 43px 1px 11px 0; 
+	margin: 0; 
+}
+	#menu th{ 
+		padding: 14px 18px 14px 18px; 
+		color: #444; 
+		background: #fff url(../images/bar.gif) no-repeat bottom left; 
+		display: inline; 
+	}
+	#menu th.active { 
+		background: #fff url(../images/baractive.gif) no-repeat bottom left; 
+		color: #8D9CAF; 
+		font-weight: bold; 
+		padding: 14px 18px 14px 18px; 
+		margin: 0 1px 0 0; 
+	}
+	#menu th a { 
+		background: #f8f8f8; 
+		color: #808080; 
+		text-decoration: none; 
+	} 	
+	#menu th a:hover { 
+		color: #333; 
+		background: #f8f8f8; 
+	} 	
+	.key { text-decoration: underline; } 
+
+
+/* RIGHT INTRO SIDE */
+	
+#intro_right {
+	float: right;
+	width: 340px;
+	padding: 25px 280px 0 20px;
+	background: #BCCEDA url(../images/intro.jpg) no-repeat;
+	color: #547592;
+	margin: 0 0 6px 0;
+	height: 174px;
+	border: 2px solid #e2e2e2;
+}
+	#intro_right h1 { margin: 0 0 20px 0; }
+	#intro_right .white { color: #FFF; background-color:transparent; }
+	
+#status {
+	float: left;
+	width: 220px;
+	font-weight: bold;
+	padding: 4px 15px;
+	border: 1px solid #ccc;
+	margin: 0 10 0px 0;
+}
+	
+#menu_conf {
+	float: left;
+	width: 250px;
+	font-weight: bold;
+	padding: 0px 0px 0px 0px;
+	border: 1px solid #ccc;
+	margin: 0 0 10px 0;
+}
+
+#data {
+	float: right;
+	width: 340px;
+	padding: 0px 280px 0 20px;
+	color: #547592;
+	margin: 0 0 6px 0;
+	border: 2px solid #e2e2e2;
+}
+
+.menu  div{
+	width: 250px;
+	height: 30px;
+	padding-right: 0px;
+	line-height: 30px;
+	background-color: #ccc;
+	color: #444;
+	font-weight: bold;
+	text-align: left;
+}
+
+.network {
+	height: 120px;
+}
+
+.dhcp {
+	height: 230px;
+}
+
+.wireless {
+	height: 120px;
+}
+
+.wirelessScan {
+	height: 480px;
+}
+
+.action {
+	height: 30px;
+}
+
+/* LEFT SIDE */
+#left {
+	float: left;
+	width: 250px;
+	font-weight: bold;
+}
+
+	.leds {
+		font-size: 14pt;
+	}
+
+	.leds a {
+		color: #ddd;
+		cursor: pointer;
+	}
+
+	.leds a:hover {
+		color: #ddd;
+		text-decoration: none;
+	}
+	
+	.note {
+		padding: 15px 15px 20px 100px;
+		border: 1px solid #CFCB66;
+		margin: 0 0 5px 0;
+		background: #FFFFAD url(../images/package.gif) no-repeat;
+		color: #585616;
+	}
+
+/* RIGHT SIDE */
+
+#right {
+	float: right;
+	width: 643px;
+}
+	.leftcol { 
+		float: left; 
+		padding: 12px 15px;
+		width: 285px; 
+		border:#ccc 1px solid;
+		text-align: justify;
+		margin: 0 0 10px 0;
+	}
+	.rightcol { 
+		float: right; 
+		padding: 10px 15px;
+		width: 285px; 
+		border:#ccc 1px solid;
+		margin: 0 0 10px 0;
+		}
+	.centralcol{
+		float: left; 
+		padding: 10px 15px;
+		width: 610px; 
+		border:#ccc 1px solid;
+		margin: 0 0 10px 0;
+		}
+	.special {
+		clear: both;
+		margin:0px 0 20px 0;	
+		padding: 5px 20px;
+		border: 1px solid #ccc;
+		background: #eee;
+		color: #444;
+	}
+
+/* FOOTER */
+
+#footer { clear: both; padding: 5px; border-top: 1px solid #ccc; }
