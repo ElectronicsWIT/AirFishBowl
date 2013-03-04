@@ -7,13 +7,10 @@
 	David Kirwan
 */
 
-typedef struct EWITQueueStruct
+typedef struct AirFishMSGStruct
 {
-    xQueueHandle *one;
-	xQueueHandle *two;
-	xQueueHandle *three;
-	xQueueHandle *four;
-	xQueueHandle *five;
-}ElectronicsWITQueueStruct;
+    int message_type;
+	double message_data;
+}Fishmsg;
 
 #endif

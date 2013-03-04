@@ -26,12 +26,16 @@ Special thanks to Andrea Seraghiti for the support in development.
 
 #include "taskTCPIP.h"
 #include "taskFlyport.h"
-//#include "utilitiesElectronicsWIT.h"
-#include "taskElectronicsWIT.h"
-#include "taskElectronicsWIT2.h"
-//#include "taskElectronicsWIT3.h"
-//#include "taskElectronicsWIT4.h"
-//#include "taskElectronicsWIT5.h"
+
+// OUR IMPORTS OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
+#include "utilitiesElectronicsWIT.h"
+#include "taskAlive.h"
+#include "taskSensors.h"
+#include "taskMove.h"
+// OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
+
+
+
 
 #include "ARPlib.h"
 /*****************************************************************************
@@ -140,22 +144,18 @@ xTaskHandle hFlyTask;
 xTaskHandle hTimerTask;
 
 // THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-xTaskHandle hElectronicsTask;
-xTaskHandle hElectronicsTask2;
-//xTaskHandle hElectronicsTask3;
-//xTaskHandle hElectronicsTask4;
-//xTaskHandle hElectronicsTask5;
+xTaskHandle hAliveTask;
+xTaskHandle hSensorsTask;
+xTaskHandle hMoveTask;
+
 
 // Our QUEUES
-xQueueHandle xQueueForTask1;
-xQueueHandle xQueueForTask2;
-//xQueueHandle xQueueForTask3;
-//xQueueHandle xQueueForTask4;
-//xQueueHandle xQueueForTask5;
-
-// The Queues
-//ElectronicsWITQueueStruct ourQueueStruct;
-// THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Probably don't need a sensor queue for the moment, commenting out
+//xQueueHandle xSensorQueue;
+xQueueHandle xMoveQueue;
+xQueueHandle xAliveQueue;
+xQueueHandle xFlyportQueue;
+// ========================================================================================================================================
 
 
 xQueueHandle xQueue;
@@ -279,21 +279,17 @@ int main(void)
 	#endif
 	
 //---------------------------------------------------------------------------------------------------------------------	
-	xQueueForTask1 = xQueueCreate(2, sizeof (int));
-	xQueueForTask2 = xQueueCreate(2, sizeof (int));
-	//xQueueForTask3 = xQueueCreate(2, sizeof (int));
-	//xQueueForTask4 = xQueueCreate(2, sizeof (int));
-	//xQueueForTask5 = xQueueCreate(2, sizeof (int));
+    // Probably don't need a sensor queue yet.. leaving out for the moment
+	//xSensorQueue = xQueueCreate(1, sizeof (Fishmsg));
+	xMoveQueue = xQueueCreate(1, sizeof (Fishmsg));
+	xAliveQueue = xQueueCreate(1, sizeof (Fishmsg));
+	xFlyportQueue = xQueueCreate(1, sizeof (Fishmsg));
+
 	
 	// Init the queue
-	int var = 1;
-	xQueueSendToBack(xQueueForTask1, ( void * ) &var, ( portTickType ) 50);
-	
-	//ourQueueStruct.one = &xQueueForTask1;
-	//ourQueueStruct.two = &xQueueForTask2;
-	//ourQueueStruct.three = &xQueueForTask3;
-	//ourQueueStruct.four = &xQueueForTask4;
-	//ourQueueStruct.five = &xQueueForTask5;
+	//Fishmsg var = {1, 0.0};
+	//xQueueSendToBack(xFlyportQueue, ( void * ) &var, ( portTickType ) 50);
+
 	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
@@ -302,24 +298,16 @@ int main(void)
 		xTaskCreate(TCPIPTask, (signed char*) "TCP", STACK_SIZE_TCPIP,
 		NULL, tskIDLE_PRIORITY + 1, &hTCPIPTask);
 	
-	
 		// Launch our tasks -------------------------------------------------------------------------------------------
-		xTaskCreate(ElectronicsWITTask, (signed char*) "AIRFISH", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask);
+		xTaskCreate(AliveTask, (signed char*) "A1", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hAliveTask);
 		
-		xTaskCreate(ElectronicsWITTask2, (signed char*) "AIRFISH2", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask2);
+		xTaskCreate(SensorsTask, (signed char*) "A2", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hSensorsTask);
 		
-		/*
-		xTaskCreate(ElectronicsWITTask3, (signed char*) "AIRFISH3", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask3);
 		
-		xTaskCreate(ElectronicsWITTask4, (signed char*) "AIRFISH4", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask4);
-		
-		xTaskCreate(ElectronicsWITTask5, (signed char*) "AIRFISH5", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hElectronicsTask5);
-		*/
+		xTaskCreate(MoveTask, (signed char*) "A3", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hMoveTask);
 		//-------------------------------------------------------------------------------------------
 
 		
@@ -335,68 +323,6 @@ int main(void)
 	return -1;
 }
 
-
-void ElectronicsWITTask()
-{
-	int i = 0;
-	char msg[20];
-	while(1){
-		vTaskSuspendAll();	
-		UARTWrite(1,"vTaskSuspendAll task 1\r\n");
-		
-		i = 0;
-		
-		
-		xQueueReceive(xQueueForTask1,&i,0);
-		
-		sprintf(msg, "Value %d\r\n", i);
-		UARTWrite(1, msg);
-		
-		if(i == 1)
-		{
-			IOPut(p19, toggle);
-			IOPut(p21, toggle);
-			xQueueSendToBack(xQueueForTask2, ( void * ) &i, ( portTickType ) 50);
-		}
-		
-		vTaskDelay(100);
-		
-		UARTWrite(1,"xTaskResumeAll task 1\r\n");
-		xTaskResumeAll();
-	}
-}
-
-void ElectronicsWITTask2()
-{
-	int i = 0;
-	char msg[20];
-	
-	while(1){
-		vTaskSuspendAll();	
-		UARTWrite(1,"vTaskSuspendAll task 2\r\n");
-		
-		i = 0;
-
-		
-		xQueueReceive(xQueueForTask2,&i,0);
-		
-		
-		sprintf(msg, "Value %d\r\n", i);
-		UARTWrite(1, msg);
-		
-		if(i == 1)
-		{
-			IOPut(p19, toggle);
-			IOPut(p21, toggle);
-			xQueueSendToBack(xQueueForTask1, ( void * ) &i, ( portTickType ) 50);
-		}
-		
-		vTaskDelay(100);
-		
-		UARTWrite(1,"xTaskResumeAll task 2\r\n");
-		xTaskResumeAll();
-	}
-}
 
 /*****************************************************************************
  FUNCTION 	TCPIPTask
