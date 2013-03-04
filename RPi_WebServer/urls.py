@@ -5,7 +5,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+		(r'^', include('RPi_WebServer.urls')),
+		# Examples:
     # url(r'^$', 'RPi_WebServer.views.home', name='home'),
     # url(r'^RPi_WebServer/', include('RPi_WebServer.foo.urls')),
 

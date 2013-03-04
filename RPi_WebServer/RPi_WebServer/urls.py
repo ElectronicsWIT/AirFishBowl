@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-
+#!/usr/bin/python
 from django.conf import settings
 from django.conf.urls.defaults import *
-from benchmark_app.views import *
+from views import *
 
 urlpatterns = patterns('',
-	url(r'^$', home, name='home'),
+	url(r'^$', home, name='home')
 )
