@@ -3,6 +3,7 @@ Who are we? What are we making?
 
 Write up some nice information and introduction for the project!
 
+![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
 
 ### Contents
 Need to make a blank project, then merge current repo contents with it, then repush back to repo!
