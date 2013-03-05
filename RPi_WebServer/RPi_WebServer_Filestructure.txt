@@ -11,11 +11,11 @@ RPi_WebServer/
 
 RPi_WebServer/  		#The main django project directory, this where you run the "django-admin.py startapp <appname> when adding a new module."
 	- RPi_WebServer  	#This is the main django module*.
-	- static			#This directory is where all static files should be placed for django to serve them with you're templates.
+	- static		#This directory is where all static files should be placed for django to serve them with you're templates.
 		- css
 		- img
 		- js
-	- templates			#This directory contains all of the html and django templates for each module. Create a subdirectory in here called <appname>.
+	- templates		#This directory contains all of the html and django templates for each module. Create a subdirectory in here called <appname>.
 		- RPi_WebServer #This is a subdirectory that contains all of the templates and html for the RPi_WebServer module.
 
 * The difference between a django project and a django module is that a project is made up of one or more django apps (modules).
