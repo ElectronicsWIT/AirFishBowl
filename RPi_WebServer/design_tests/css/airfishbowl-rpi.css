@@ -42,6 +42,7 @@ body {
 	}
 	.fish-entry:focus {
 		color: white;
+		text-decoration: none;
 	}
 
 .fish-entry-container {
