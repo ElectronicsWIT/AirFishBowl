@@ -3,13 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     {% block head %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
-    <title>{% block title %}{% endblock %}</title>
+    <!-- CSS -->
+		<!-- Import Order Important -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/airfishbowl-rpi.css"/>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css" />
+		<title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
 <body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    <div class="container">
+			<img class="header-img" src="{{ STATIC_URL }}img/header1.png"/>
+			{% block content %}{% endblock %}
+		</div>
+    <div class="footer">
         {% block footer %}
         {% endblock %}
     </div>

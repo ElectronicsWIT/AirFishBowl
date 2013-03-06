@@ -12,3 +12,11 @@ extern xQueueHandle xMoveQueue;
 
 // Function prototype
 void AliveTask();
+
+
+void DoSwim();
+void DoAvoid();
+void DoFollow();
+void DoFeed();
+int ManualControl();
+void GetSafe();
