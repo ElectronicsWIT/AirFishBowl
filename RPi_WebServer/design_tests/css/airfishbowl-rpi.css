@@ -25,6 +25,7 @@ body {
 	color: white;
 	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
 
+
 	-webkit-transition: all .25s ease;
 	   -moz-transition: all .25s ease;
 	    -ms-transition: all .25s ease;
@@ -35,7 +36,13 @@ body {
 	.fish-entry:hover {
 		background-position: -500px 0;
 		box-shadow: none;
+		color: white;
+		text-decoration: none;
 	}
+	.fish-entry:focus {
+		color: white;
+	}
+
 .fish-entry-container {
 	position: relative;
 	background-image: url('../img/entries_background_motivo.png');
