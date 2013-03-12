@@ -4,7 +4,10 @@ Who are we? What are we making?
 Write up some nice information and introduction for the project!
 
 ### Contents
-Need to make a blank project, then merge current repo contents with it, then repush back to repo!
+The _AirfishBowl_ directory contains the OpenPicus Flyport codebase for the AirfishBowl fish
+
+The _RPi_Webserver_ directory contains the Django Webapp which can be run on the Raspberry Pi and acts
+as a front end for the AirfishBowl system._
 
 ### Forum
 Please sign up to the following forum so that we may all have an easy means of communication.
