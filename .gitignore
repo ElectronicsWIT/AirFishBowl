@@ -11,3 +11,10 @@ vENV
 # Ignore Compiled files						#
 ###################################
 *.pyc
+
+###################################
+# Ignore Compiled C files
+# Ignore Obj folder
+###################################
+AirfishBowl/Obj/
+*.o
