@@ -29,9 +29,7 @@ Special thanks to Andrea Seraghiti for the support in development.
 
 // OUR IMPORTS OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
 #include "utilitiesElectronicsWIT.h"
-#include "taskAlive.h"
 #include "taskSensors.h"
-#include "taskMove.h"
 // OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
 
 
@@ -144,16 +142,12 @@ xTaskHandle hFlyTask;
 xTaskHandle hTimerTask;
 
 // THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-xTaskHandle hAliveTask;
 xTaskHandle hSensorsTask;
-xTaskHandle hMoveTask;
 
 
 // Our QUEUES
 // Probably don't need a sensor queue for the moment, commenting out
 //xQueueHandle xSensorQueue;
-xQueueHandle xMoveQueue;
-xQueueHandle xAliveQueue;
 xQueueHandle xFlyportQueue;
 // ========================================================================================================================================
 
@@ -281,15 +275,7 @@ int main(void)
 //---------------------------------------------------------------------------------------------------------------------	
     // Probably don't need a sensor queue yet.. leaving out for the moment
 	//xSensorQueue = xQueueCreate(1, sizeof (Fishmsg));
-	xMoveQueue = xQueueCreate(1, sizeof (Fishmsg));
-	xAliveQueue = xQueueCreate(1, sizeof (Fishmsg));
 	xFlyportQueue = xQueueCreate(1, sizeof (Fishmsg));
-
-	
-	// Init the queue
-	//Fishmsg var = {1, 0.0};
-	//xQueueSendToBack(xFlyportQueue, ( void * ) &var, ( portTickType ) 50);
-
 	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
@@ -298,16 +284,9 @@ int main(void)
 		xTaskCreate(TCPIPTask, (signed char*) "TCP", STACK_SIZE_TCPIP,
 		NULL, tskIDLE_PRIORITY + 1, &hTCPIPTask);
 	
-		// Launch our tasks -------------------------------------------------------------------------------------------
-		xTaskCreate(AliveTask, (signed char*) "A1", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hAliveTask);
-		
+		// Launch our tasks -------------------------------------------------------------------------------------------		
 		xTaskCreate(SensorsTask, (signed char*) "A2", configMINIMAL_STACK_SIZE,
 		NULL, tskIDLE_PRIORITY + 1, &hSensorsTask);
-		
-		
-		xTaskCreate(MoveTask, (signed char*) "A3", configMINIMAL_STACK_SIZE,
-		NULL, tskIDLE_PRIORITY + 1, &hMoveTask);
 		//-------------------------------------------------------------------------------------------
 
 		

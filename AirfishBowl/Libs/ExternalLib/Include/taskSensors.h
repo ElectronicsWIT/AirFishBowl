@@ -2,7 +2,6 @@
 #include "HWlib.h"
 #include "utilitiesElectronicsWIT.h"
 
-extern xQueueHandle xAliveQueue;
 extern xQueueHandle xFlyportQueue;
 
 /*
