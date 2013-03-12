@@ -1,7 +1,15 @@
-![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
+![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-logo-main.png)
 
 Who are we? What are we making?
 Write up some nice information and introduction for the project!
+
+
+### FreeRTOS Tasks
+This following graph details the structure of the system running on the OpenPicus Flyport Embedded System
+which powers the AirfishBowl Fishes
+
+![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
+
 
 ### Contents
 The _AirfishBowl_ directory contains the OpenPicus Flyport codebase for the AirfishBowl fish
