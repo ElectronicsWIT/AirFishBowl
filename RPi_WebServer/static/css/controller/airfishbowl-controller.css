@@ -1,0 +1,71 @@
+@media (min-width: 980px) {
+body {
+	background-image: url('../../img/background2.jpg');
+}
+div.clear {
+    clear:both;
+}
+
+.container {
+	background-color: #FFF;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 50px;
+	width: 940px;
+}
+
+.header-img {
+	margin: 0 0 0px 0;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+}
+.footer-img {
+	margin: 0 0 0px 0;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+}
+
+.controller-outer {
+	border-top: 10px solid #000;
+	border-bottom: 10px solid #000;
+}
+.controller-left, .controller-right {
+	height: 320px;
+	width: 470px;
+	float: left;
+	margin: 0;
+}
+.controller-left {
+	background: #222;
+}
+.controller-right {
+	position: relative;
+	background-image: url('../../img/controller/arrows_bk_grad.png');
+	background-position: -300px -300px;
+}
+	.controller-right.pressed-left {
+		background-position: 0 -300px;
+	}
+	.controller-right.pressed-right {
+		background-position: -600px -300px;
+	}
+	.controller-right.pressed-up {
+		background-position: -300px 0;
+	}
+	.controller-right.pressed-down {
+		background-position: -300px -600px;
+	}
+
+
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+/*@media (min-width: 768px) and (max-width: 979px) {}*/
+ 
+/* Landscape phone to portrait tablet */
+/*@media (max-width: 767px) {}*/
+ 
+/* Landscape phones and down */
+@media (max-width: 979px) {
+
+}
