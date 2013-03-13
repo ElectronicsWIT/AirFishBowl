@@ -101,7 +101,19 @@ div.clear {
 	right: 0;
 }
 .controller-arrows-pressed {
-	background: #557a29;
+	background: #8de820;
+	border: 1px solid #AAA;
+}
+
+.controller-console {
+	position: relative;
+	margin: 10px;
+	color: #CCC;
+	font-size: 8pt;
+}
+.controller-console {
+	position: relative;
+	margin: 10px;
 }
 
 
