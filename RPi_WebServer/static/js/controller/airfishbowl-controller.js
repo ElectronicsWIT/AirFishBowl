@@ -130,7 +130,7 @@ $('.controller-arrows-down').mouseup(function() {
 /* Old Controllers */
 
 function keyDown (event){      
-    if (event.keyCode == 65){}
+    if (event.keyCode == 65){
         newAJAXCommand('leds.cgi?led=2');
     }
     else if (event.keyCode == 68){
@@ -147,7 +147,7 @@ function keyDown (event){
         newAJAXCommand('leds.cgi?led=0');
         isSwimming = 1;
       }
-      if (isSwimming == 1){
+      else if (isSwimming == 1){
         newAJAXCommand('leds.cgi?led=1');
         isSwimming = 0;
       }     
