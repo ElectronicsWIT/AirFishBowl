@@ -1,3 +1,8 @@
+
+var chart;
+
+$(document).ready(function() {
+
 /**
  * Grid theme for Highcharts JS
  * @author Torstein Hønsi

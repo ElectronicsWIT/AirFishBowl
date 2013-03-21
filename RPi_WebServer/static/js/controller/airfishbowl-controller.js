@@ -5,8 +5,6 @@ function arrows_bk_default() {
 	$('.controller-right').removeClass('pressed-down');
 }
 
-var chart;
-
 $(document).ready(function() {
 
 /* Control of keyboard events */
@@ -78,7 +76,7 @@ $(document).keyup(function(e){
        $('.controller-arrows-down').removeClass('controller-arrows-pressed');
 
        newAJAXCommand('leds.cgi?led=5');
-       
+
        return false;
     }
 });
@@ -121,3 +119,4 @@ $('.controller-arrows-down').mouseup(function() {
     $('.controller-arrows-down').removeClass('controller-arrows-pressed');
 });
 
+});
