@@ -5,6 +5,7 @@ body {
 }
 
 .container {
+	position: relative;
 	background-color: #FFF;
 	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
 	margin-top: 40px;
@@ -216,4 +217,8 @@ body {
 
 #footer {
 	margin: 10px 0px 0px 0px;
+	position: absolute;
+	text-align: right;
+	font-size: 11px;
+	bottom: -30px;
 }
