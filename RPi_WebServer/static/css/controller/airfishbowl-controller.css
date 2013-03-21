@@ -25,20 +25,24 @@ div.clear {
 }
 
 .controller-outer {
-	border-top: 10px solid #000;
-	border-bottom: 10px solid #000;
+	border-top: 4px solid #FFF;
+	border-bottom: 4px solid #FFF;
 }
 .controller-left, .controller-right {
-	height: 320px;
-	width: 470px;
+	height: 250px;
+	width: 468px;
 	float: left;
 	margin: 0;
 }
 .controller-left {
+	position: relative;
 	background: #222;
+	box-shadow: 0 0 40px 0 hsla(0,0%,0%,.3);
+	z-index: 1;
 }
 .controller-right {
 	position: relative;
+	left: 4px;
 	background-image: url('../../img/controller/arrows_bk_grad.png');
 	background-position: -300px -300px;
 
@@ -60,6 +64,16 @@ div.clear {
 	.controller-right.pressed-down {
 		background-position: -300px -600px;
 	}
+
+.controller-down {
+	position: relative;
+	width: 920px;
+	padding: 10px;
+	float: left;
+	margin: 0;
+	background: #222;
+	margin-top: 4px;
+}
 
 .controller-arrows-outer {
 	position: absolute;
@@ -84,6 +98,10 @@ div.clear {
 	border-radius: 5px;
 	box-shadow: 0 0 10px 0 hsla(0,0%,0%,.25);
 }
+	.controller-arrows-left:hover, .controller-arrows-right:hover, .controller-arrows-up:hover, .controller-arrows-down:hover {
+		background: #CCC;
+		border: 1px solid #AAA;
+	}
 .controller-arrows-up {
 	left: 70px;
 	top: 0;
@@ -101,19 +119,26 @@ div.clear {
 	right: 0;
 }
 .controller-arrows-pressed {
-	background: #8de820;
+	background: #8de820 !important;
 	border: 1px solid #AAA;
 }
 
 .controller-console {
-	position: relative;
+	position: absolute;
+	bottom: 0;
 	margin: 10px;
 	color: #CCC;
 	font-size: 8pt;
+	background: black;
+	padding: 10px;
+	height: 210px;
+	width: 429px;
 }
-.controller-console {
-	position: relative;
-	margin: 10px;
+
+#chart1, #chart2, #chart3, #chart4 {
+	height: 200px;
+	width: 449px;
+	float: left;
 }
 
 
