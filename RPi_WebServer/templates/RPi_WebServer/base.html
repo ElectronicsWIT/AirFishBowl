@@ -7,8 +7,9 @@
 		<!-- Import Order Important -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/airfishbowl-rpi.css"/>
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/airfishbowl-rpi.css" media="screen"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/airfishbowl-rpi-mobile.css" media="handheld"/>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css" media="handheld"/>
 		<title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
