@@ -122,6 +122,11 @@ $('.controller-arrows-down').mouseup(function() {
 });
 
 
+
+
+});
+
+
 /* Old Controllers */
 
 function keyDown (event){      
@@ -171,6 +176,3 @@ function keyUp (event){
 window.addEventListener("keydown", function(event){ keyDown (event) });
 window.addEventListener("keyup", function(event){ keyUp (event) });
 
-
-
-});
