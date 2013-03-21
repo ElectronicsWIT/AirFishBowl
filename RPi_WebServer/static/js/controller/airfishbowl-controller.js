@@ -5,6 +5,8 @@ function arrows_bk_default() {
 	$('.controller-right').removeClass('pressed-down');
 }
 
+var isSwimming = 0;
+
 $(document).ready(function() {
 
 /* Control of keyboard events */
@@ -118,5 +120,57 @@ $('.controller-arrows-down').mouseup(function() {
 	$('.controller-right').removeClass('pressed-down');
     $('.controller-arrows-down').removeClass('controller-arrows-pressed');
 });
+
+
+/* Old Controllers */
+
+function keyDown (event){      
+    if (event.keyCode == 65){}
+        newAJAXCommand('leds.cgi?led=2');
+    }
+    else if (event.keyCode == 68){
+        newAJAXCommand('leds.cgi?led=3');
+    }
+    else if (event.keyCode == 83){
+        newAJAXCommand('leds.cgi?led=5');
+    }
+    else if (event.keyCode == 87){
+        newAJAXCommand('leds.cgi?led=4');
+    }
+    else if (event.keyCode == 32){
+      if (isSwimming == 0){
+        newAJAXCommand('leds.cgi?led=0');
+        isSwimming = 1;
+      }
+      if (isSwimming == 1){
+        newAJAXCommand('leds.cgi?led=1');
+        isSwimming = 0;
+      }     
+    }
+}
+
+function keyUp (event){
+    if (event.keyCode == 87){
+        newAJAXCommand('leds.cgi?led=4');
+                //controlLoop();
+    }
+
+    else if (event.keyCode == 65){
+        newAJAXCommand('leds.cgi?led=2');
+    }
+
+    else if (event.keyCode == 68){
+        newAJAXCommand('leds.cgi?led=3');
+    }
+    
+    else if (event.keyCode == 83){
+        newAJAXCommand('leds.cgi?led=5');
+    }
+}
+
+window.addEventListener("keydown", function(event){ keyDown (event) });
+window.addEventListener("keyup", function(event){ keyUp (event) });
+
+
 
 });
