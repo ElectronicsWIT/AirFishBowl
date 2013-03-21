@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 /* Control of keyboard events */
 $(document).keydown(function(e){
-    if (e.keyCode == 37) { 
+    if (e.keyCode == 65) { 
        arrows_bk_default();
        $('.controller-right').addClass('pressed-left');
        $('.controller-arrows-left').addClass('controller-arrows-pressed');
@@ -20,7 +20,7 @@ $(document).keydown(function(e){
 
        return false;
     }
-    if (e.keyCode == 38) { 
+    if (e.keyCode == 87) { 
        arrows_bk_default();
        $('.controller-right').addClass('pressed-up');
        $('.controller-arrows-up').addClass('controller-arrows-pressed');
@@ -29,7 +29,7 @@ $(document).keydown(function(e){
 
        return false;
     }
-    if (e.keyCode == 39) { 
+    if (e.keyCode == 68) { 
        arrows_bk_default();
        $('.controller-right').addClass('pressed-right');
        $('.controller-arrows-right').addClass('controller-arrows-pressed');
@@ -38,7 +38,7 @@ $(document).keydown(function(e){
 
        return false;
     }
-    if (e.keyCode == 40) { 
+    if (e.keyCode == 83) { 
        arrows_bk_default();
        $('.controller-right').addClass('pressed-down');
        $('.controller-arrows-down').addClass('controller-arrows-pressed');
@@ -49,7 +49,7 @@ $(document).keydown(function(e){
     }
 });
 $(document).keyup(function(e){
-    if (e.keyCode == 37) {
+    if (e.keyCode == 65) {
        $('.controller-right').removeClass('pressed-left');
        $('.controller-arrows-left').removeClass('controller-arrows-pressed');
 
@@ -57,7 +57,7 @@ $(document).keyup(function(e){
 
        return false;
     }
-    if (e.keyCode == 38) { 
+    if (e.keyCode == 87) { 
        $('.controller-right').removeClass('pressed-up');
        $('.controller-arrows-up').removeClass('controller-arrows-pressed');
 
@@ -65,7 +65,7 @@ $(document).keyup(function(e){
 
        return false;
     }
-    if (e.keyCode == 39) { 
+    if (e.keyCode == 68) { 
        $('.controller-right').removeClass('pressed-right');
        $('.controller-arrows-right').removeClass('controller-arrows-pressed');
 
@@ -73,7 +73,7 @@ $(document).keyup(function(e){
 
        return false;
     }
-    if (e.keyCode == 40) { 
+    if (e.keyCode == 83) { 
        $('.controller-right').removeClass('pressed-down');
        $('.controller-arrows-down').removeClass('controller-arrows-pressed');
 
@@ -87,38 +87,42 @@ $(document).keyup(function(e){
 /* Left arrow click */
 $('.controller-arrows-left').mousedown(function() {
 	$('.controller-right').addClass('pressed-left');
-    $('.controller-arrows-left').addClass('controller-arrows-pressed');
+  $('.controller-arrows-left').addClass('controller-arrows-pressed');
+  newAJAXCommand('leds.cgi?led=2');
 });
 $('.controller-arrows-left').mouseup(function() {
 	$('.controller-right').removeClass('pressed-left');
-    $('.controller-arrows-left').removeClass('controller-arrows-pressed');
+  $('.controller-arrows-left').removeClass('controller-arrows-pressed');
 });
 /* Up arrow click */
 $('.controller-arrows-up').mousedown(function() {
 	$('.controller-right').addClass('pressed-up');
-    $('.controller-arrows-up').addClass('controller-arrows-pressed');
+  $('.controller-arrows-up').addClass('controller-arrows-pressed');
+  newAJAXCommand('leds.cgi?led=4');
 });
 $('.controller-arrows-up').mouseup(function() {
 	$('.controller-right').removeClass('pressed-up');
-    $('.controller-arrows-up').removeClass('controller-arrows-pressed');
+  $('.controller-arrows-up').removeClass('controller-arrows-pressed');
 });
 /* Right arrow click */
 $('.controller-arrows-right').mousedown(function() {
 	$('.controller-right').addClass('pressed-right');
-    $('.controller-arrows-right').addClass('controller-arrows-pressed');
+  $('.controller-arrows-right').addClass('controller-arrows-pressed');
+  newAJAXCommand('leds.cgi?led=3');
 });
 $('.controller-arrows-right').mouseup(function() {
 	$('.controller-right').removeClass('pressed-right');
-    $('.controller-arrows-right').removeClass('controller-arrows-pressed');
+  $('.controller-arrows-right').removeClass('controller-arrows-pressed');
 });
 /* Down arrow click */
 $('.controller-arrows-down').mousedown(function() {
 	$('.controller-right').addClass('pressed-down');
-    $('.controller-arrows-down').addClass('controller-arrows-pressed');
+  $('.controller-arrows-down').addClass('controller-arrows-pressed');
+  newAJAXCommand('leds.cgi?led=5');
 });
 $('.controller-arrows-down').mouseup(function() {
 	$('.controller-right').removeClass('pressed-down');
-    $('.controller-arrows-down').removeClass('controller-arrows-pressed');
+  $('.controller-arrows-down').removeClass('controller-arrows-pressed');
 });
 
 
@@ -128,9 +132,10 @@ $('.controller-arrows-down').mouseup(function() {
 
 
 /* Old Controllers */
+// Only using the Space controller, ASDW controls are above.
 
 function keyDown (event){      
-    if (event.keyCode == 65){
+    /*if (event.keyCode == 65){
         newAJAXCommand('leds.cgi?led=2');
     }
     else if (event.keyCode == 68){
@@ -142,7 +147,7 @@ function keyDown (event){
     else if (event.keyCode == 87){
         newAJAXCommand('leds.cgi?led=4');
     }
-    else if (event.keyCode == 32){
+    else */if (event.keyCode == 32){
       if (isSwimming == 0){
         newAJAXCommand('leds.cgi?led=0');
         isSwimming = 1;
@@ -155,7 +160,7 @@ function keyDown (event){
 }
 
 function keyUp (event){
-    if (event.keyCode == 87){
+    /*if (event.keyCode == 87){
         newAJAXCommand('leds.cgi?led=4');
                 //controlLoop();
     }
@@ -170,7 +175,7 @@ function keyUp (event){
     
     else if (event.keyCode == 83){
         newAJAXCommand('leds.cgi?led=5');
-    }
+    }*/
 }
 
 window.addEventListener("keydown", function(event){ keyDown (event) });
