@@ -9,9 +9,6 @@
 
 //	RTOS components - Semaphore and queues
 extern xQueueHandle xQueue;
-extern xQueueHandle xFlyportQueue;
-extern xQueueHandle xMoveQueue;
-extern xQueueHandle xAliveQueue;
 extern xSemaphoreHandle xSemFrontEnd;
 extern xSemaphoreHandle xSemHW;
 

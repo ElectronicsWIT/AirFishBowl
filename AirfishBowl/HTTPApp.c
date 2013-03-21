@@ -40,7 +40,13 @@
 #if defined(STACK_USE_HTTP2_SERVER)
 #define __HTTPAPP_C
 
- 
+/****************Global Variables*********************/
+
+int myGlobal = 1;
+int myGlobal2 = 1;
+
+/*****************Global Variables end****************/
+
 /****************************************************************************
   FUNCTION	HTTP_IO_RESULT HTTPExecuteGet(void)
 	
@@ -48,6 +54,7 @@
   it processes only the leds.cgi function, but you can add code to process 
   other GET requests.
 *****************************************************************************/
+
 HTTP_IO_RESULT HTTPExecuteGet(void)
 {
 	BYTE *ptr;
@@ -74,22 +81,51 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 		ptr = HTTPGetArg(curHTTP.data, (BYTE *)"led");
 		
 		// The requested led is toggled
-		switch(*ptr) 
+		switch(*ptr)
 		{
 			case '0':
-				IOPut(p4, toggle);
+			//Straight
+			    myGlobal = 0;
+				PWMOff(1);
+				PWMOn(d1out, 1);
 				break;
+				
 			case '1':
-				IOPut(p6, toggle);
+			//Stop
+				myGlobal = 1;
+				PWMOff(1);
+				PWMOn(d1out, 1);
 				break;
+				
 			case '2':
-				IOPut(p17, toggle);
+				myGlobal = 2;
+				//Left
+				PWMOff(1);
+				PWMOn(d1out, 1);
 				break;
+				
 			case '3':
-				IOPut(p19, toggle);
+				myGlobal = 3;
+				// Right
+				PWMOn(d1out, 1);
 				break;
+			
 			case '4':
-				IOPut(p21, toggle);
+				myGlobal2 = 4;
+				//Up
+				//PWMOff(1);
+				//PWMOff(3);
+				PWMOn(d4out, 2);
+				//PWMOn(d1out, 1);
+				break;
+				
+			case '5':
+				myGlobal2 = 5;
+				//Down
+				//PWMOff(1);
+				//PWMOff(3);
+				PWMOn(d4out, 2);
+				//PWMOn(d1out, 1);
 				break;
 		}
 		

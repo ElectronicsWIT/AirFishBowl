@@ -95,7 +95,7 @@ extern int WFStatus;
 /*--------------------------------------------*/
 /* Default settings for Connection Management */
 /*--------------------------------------------*/
-#define MY_DEFAULT_SSID_NAME                "FlyportNet"
+#define MY_DEFAULT_SSID_NAME                "MOBProject"
 
 #define MY_DEFAULT_NETWORK_TYPE             WF_ADHOC   /* WF_INFRASTRUCTURE or WF_ADHOC     */
 
