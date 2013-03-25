@@ -3,12 +3,12 @@
 # ignore when commiting to the repo.
 
 ###################################
-# Ignore Virtual Environment			#
+# Ignore Virtual Enviroment
 ###################################
 vENV
 
 ###################################
-# Ignore Compiled files						#
+# Ignore Compiled files
 ###################################
 *.pyc
 

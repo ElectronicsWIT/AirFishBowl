@@ -27,6 +27,14 @@ Special thanks to Andrea Seraghiti for the support in development.
 #include "taskTCPIP.h"
 #include "taskFlyport.h"
 
+// OUR IMPORTS OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
+#include "utilitiesElectronicsWIT.h"
+#include "taskSensors.h"
+// OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS  OUR IMPORTS 
+
+
+
+
 #include "ARPlib.h"
 /*****************************************************************************
  *								--- CONFIGURATION BITS ---					 *
@@ -132,13 +140,24 @@ BOOL UDPoverflowFlag[MAX_UDP_SOCKETS_FREERTOS];
 xTaskHandle hTCPIPTask;
 xTaskHandle hFlyTask;
 xTaskHandle hTimerTask;
+
+// THESE ARE OUR TASKS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+xTaskHandle hSensorsTask;
+
+
+// Our QUEUES
+// Probably don't need a sensor queue for the moment, commenting out
+//xQueueHandle xSensorQueue;
+xQueueHandle xFlyportQueue;
+// ========================================================================================================================================
+
+
 xQueueHandle xQueue;
 xSemaphoreHandle xSemFrontEnd = NULL;
 xSemaphoreHandle xSemHW = NULL;
 portBASE_TYPE xStatus;
 
 static int (*FP[40])();
-
 
 void CmdCheck()
 {
@@ -238,13 +257,10 @@ void CmdCheck()
   MAIN APPLICATION ENTRY POINT
 ****************************************************************************/
 int main(void)
-
 {
 	//	Queue creation - will be used for communication between the stack and other tasks
 	xQueue = xQueueCreate(3, sizeof (int));
-
 	xSemFrontEnd = xSemaphoreCreateMutex();
-
 	
 	// Initialize application specific hardware
 	HWInit(HWDEFAULT);
@@ -254,7 +270,12 @@ int main(void)
 	uartinit(1,19200);
 	uarton(1);
 	uartwrite(1, "Flyport starting...");
-	#endif	
+	#endif
+	
+//---------------------------------------------------------------------------------------------------------------------	
+    // Probably don't need a sensor queue yet.. leaving out for the moment
+	//xSensorQueue = xQueueCreate(1, sizeof (Fishmsg));
+	xFlyportQueue = xQueueCreate(5, sizeof (Fishmsg));
 	
 	//	RTOS starting
 	if (xSemFrontEnd != NULL) 
@@ -263,9 +284,16 @@ int main(void)
 		xTaskCreate(TCPIPTask, (signed char*) "TCP", STACK_SIZE_TCPIP,
 		NULL, tskIDLE_PRIORITY + 1, &hTCPIPTask);
 	
+		// Launch our tasks -------------------------------------------------------------------------------------------		
+		xTaskCreate(SensorsTask, (signed char*) "A", configMINIMAL_STACK_SIZE,
+		NULL, tskIDLE_PRIORITY + 1, &hSensorsTask);
+		//-------------------------------------------------------------------------------------------
+
+		
 		// Start of the RTOS scheduler, this function should never return
 		vTaskStartScheduler();
 	}
+	
 	
 	#if defined	(STACK_USE_UART)
 	UARTWrite(1, "Unexpected end of program...\r\n");
