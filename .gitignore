@@ -3,7 +3,7 @@
 # ignore when commiting to the repo.
 
 ###################################
-# Ignore Virtual Enviroment
+# Ignore Virtual Environment
 ###################################
 vENV
 
