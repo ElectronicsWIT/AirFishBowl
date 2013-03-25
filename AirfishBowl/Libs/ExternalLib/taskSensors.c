@@ -8,7 +8,7 @@
 #define VOLT_MEAS		2006
 
 double ReadDist(int ADCPin);
-double ReadPower(int num);
+double ReadPower(int choice);
 
 /*
 	Applied Electronics, Applied Operating Systems
@@ -17,10 +17,28 @@ double ReadPower(int num);
 
 void SensorsTask()
 {
-	Fishmsg height, current;
+	Fishmsg front, left, right, height, current, voltage;
 	double measVal;
 	
 	while(1){
+		// get front distance measurement
+		measVal = 12.34;	// dummy value
+		front.message_type = FRONT_DIST_MEAS;
+		front.message_data = measVal;
+		xQueueSendToBack(xFlyportQueue, ( void * ) &front, ( portTickType ) 1);
+		
+		// get left side distance measurement
+		measVal = 12.34;	// dummy value
+		left.message_type = LS_DIST_MEAS;
+		left.message_data = measVal;
+		xQueueSendToBack(xFlyportQueue, ( void * ) &left, ( portTickType ) 1);
+		
+		// get right side distance measurement
+		measVal = 12.34;	// dummy value
+		right.message_type = RS_DIST_MEAS;
+		right.message_data = measVal;
+		xQueueSendToBack(xFlyportQueue, ( void * ) &right, ( portTickType ) 1);
+		
 		// get height measurement
 		measVal = ReadDist(3);	// height sensor connected to ADC3 input (pin 20)
 		height.message_type = HEIGHT_MEAS;
@@ -32,6 +50,12 @@ void SensorsTask()
 		current.message_type = CURR_MEAS;
 		current.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &current, ( portTickType ) 1);
+		
+		// get voltage measurement
+		measVal = ReadPower(2);	// case 2 is current
+		voltage.message_type = VOLT_MEAS;
+		voltage.message_data = measVal;
+		xQueueSendToBack(xFlyportQueue, ( void * ) &voltage, ( portTickType ) 1);
 		
 		vTaskDelay(10);
 	}
@@ -46,34 +70,28 @@ double ReadDist(int ADCPin)
     return cm;
 }
 
-double ReadPower(int num)
+double ReadPower(int choice)
 {
-	double ADval;
-	int reading = 0;
 	int total = 0;
-	int counter = 0;
-	int average;
-	int answer = 0;
-	
-
-	// Analog values reading according to the webpage request.
-	switch(num)
+	int count;
+	double meas, average;
+		
+	switch(choice)
 	{
-		case 1:
-			for(counter= 0; counter<100; counter++)
+		case 1:		// current measurement
+			for(count = 0; count < 100; count++)		// take 100 readings
 			{
-			  reading = ADCVal(1);
-			  total = total + reading;
+			  total += ADCVal(1);	// current output of board connected to ADC1 input			  
 			}
-			average = total/(counter+1);
-			answer = (average-186)*2;
+
+			average = total / (count + 1);
 			
-			ADval = answer;
+			meas = (average - 186) * 2;
 		break;
-		case 2:
-			ADval = ADCVal(2)*4;
+		case 2:		// voltage measurement
+			meas = ADCVal(2) * 4;	// voltage output connected to ADC2 input
 		break;	
 	}
 	
-	return ADval;
+	return meas;
 }
