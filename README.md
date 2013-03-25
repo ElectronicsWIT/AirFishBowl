@@ -12,13 +12,13 @@ which powers the AirfishBowl Fishes
 
 
 ### Contents
-The _AirfishBowl_ directory contains the OpenPicus Flyport codebase for the AirfishBowl fish
+The _AirfishBowl_ directory contains the OpenPicus Project for the AirfishBowl Fish
 
-The _RPi_Webserver_ directory contains the Django Webapp which can be run on the Raspberry Pi and acts
-as a front end for the AirfishBowl system._
+The _RPi_Webserver_ directory contains the Django WebApp which can be run on the Raspberry Pi and acts
+as a front end for the AirfishBowl system.
 
 
-### Forum
+### ForumV
 Please sign up to the following forum so that we may all have an easy means of communication.
 
 http://zalifer.com/airfish/index.php
