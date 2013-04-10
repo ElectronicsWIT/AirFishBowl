@@ -1,5 +1,4 @@
 #include "INTlib.h"
-
 #include "string.h"
 #include "TCPlib.h"
 #include "UDPlib.h"
@@ -7,10 +6,13 @@
 #include "SMTPlib.h"
 #include "FTPlib.h"
 
+#include "utilitiesElectronicsWIT.h"
+
 //	RTOS components - Semaphore and queues
 extern xQueueHandle xQueue;
 extern xSemaphoreHandle xSemFrontEnd;
 extern xSemaphoreHandle xSemHW;
+extern xQueueHandle xFlyportQueue;
 
 
 //	FrontEnd variables

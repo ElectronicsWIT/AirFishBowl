@@ -109,7 +109,7 @@ while(1)
 	
 	
 	if((myGlobal2 == 5))
-
+	{
 		//Down = 8ms
 		work2 = down; 
 		//work2 < down; //work2++) 
@@ -128,4 +128,6 @@ while(1)
 	
 	
 	
+}
+
 }
