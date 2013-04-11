@@ -1,0 +1,48 @@
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.exe
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.pdb
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csprojResolveAssemblyReference.cache
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.baml
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.g.cs
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\App.g.cs
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1_MarkupCompile.cache
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.g.resources
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.Properties.Resources.resources
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csproj.GenerateResource.Cache
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.exe
+c:\users\mark\documents\visual studio 2012\Projects\CSKinectSkeletonApplication1\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.baml
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\App.g.cs
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1_MarkupCompile.cache
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.g.resources
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.Properties.Resources.resources
+C:\Users\Mark\Documents\Visual Studio 2012\Projects\Test Again\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csproj.GenerateResource.Cache
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.baml
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\App.g.cs
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1_MarkupCompile.cache
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.g.resources
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.Properties.Resources.resources
+C:\Users\Paddy\Desktop\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csproj.GenerateResource.Cache
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.exe
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\bin\Debug\CSKinectSkeletonApplication1.pdb
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.baml
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\App.g.cs
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1_MarkupCompile.cache
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.g.resources
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.Properties.Resources.resources
+C:\Users\Paddy\Desktop\KINECT CODES\C# Sending To Fish\CSKinectSkeletonApplication1\obj\x86\Debug\CSKinectSkeletonApplication1.csproj.GenerateResource.Cache

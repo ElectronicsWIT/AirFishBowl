@@ -57,15 +57,15 @@ while(1)
 	{
 		//Left
 		for (work = middle; work < left; work++)
-			{
+		{
 			PWMDuty(work, 1);
 			vTaskDelay(15); //used to slow down the effect
-			}
+		}
 		for (work = left; work > middle; work --)
-			{
+		{
 				PWMDuty(work, 1);
 				vTaskDelay(15); //used to slow down the effect
-			}
+		}
 	}
 	
 	
@@ -73,15 +73,15 @@ while(1)
 	{
 		//right
 		for (work = middle; work > right; work--)
-			{
+		{
 			PWMDuty(work, 1);
 			vTaskDelay(15); //used to slow down the effect
-			}
+		}
 		for (work = right; work < middle; work ++)
-			{
+		{
 				PWMDuty(work, 1);
 				vTaskDelay(15); //used to slow down the effect
-			}
+		}
 	}
 	
 	
@@ -90,42 +90,62 @@ while(1)
 	{
 	
 	}
-	if((myGlobal2 == 4))
-	{
+	
+	// Looks like this has not been implemented yet, commenting out
+	//if((myGlobal2 == 4))
+	//{
 		//Up
-		    work2 > right, work2--;//work2 = left - 0.5;
+		//work2 > right, work2--;)//work2 = left - 0.5;
 			
-			PWMDuty(work2, 2);
-			//vTaskDelay(5); //used to slow down the effect
-		/*for (work = right; work < middle; work ++)
-			{
-				PWMDuty(work, 2);
-				vTaskDelay(15); //used to slow down the effect
-			}*/
-			myGlobal2 = 0;
-			
-	}
-	
-	
-	
-	if((myGlobal2 == 5))
-
-		//Down = 8ms
-		work2 = down; 
-		//work2 < down; //work2++) 
-		PWMDuty(work2, 2);
-		vTaskDelay(30); //used to slow down the effect
+		//	PWMDuty(work2, 2);
+		//vTaskDelay(5); //used to slow down the effect
+		//for (work = right; work < middle; work ++)
+		//	{
+		//		PWMDuty(work, 2);
+		//		vTaskDelay(15); //used to slow down the effect
+		//	}
+		//	myGlobal2 = 0;
 		
-		/*for (work2 = right; work2 < middle; work2 ++)
-			{
-				PWMDuty(work2, 2);
-				vTaskDelay(15); //used to slow down the effect
-			}*/
-	}
+	//}
 	
 	
+	// Looks like this has not been implemented yet, commenting out
+	//if((myGlobal2 == 5))
+	//{
+		//Down = 8ms
+		//work2 = down; 
+		//work2 < down; //work2++) 
+		//PWMDuty(work2, 2);
+		//vTaskDelay(30); //used to slow down the effect
+		
+		//for (work2 = right; work2 < middle; work2 ++)
+		//	{
+		//		PWMDuty(work2, 2);
+		//		vTaskDelay(15); //used to slow down the effect
+		//	}
+	//}
 	
+		
+	Fishmsg msg;
+	int i = 0;
+	char str[10];
+	double data = 0;
+	i = 0;
+		
+	xQueueReceive(xFlyportQueue,&msg,0);
+	i = msg.message_type;
+	data = msg.message_data;
+
+	//sprintf(str, "Value %d\r\n", i);
+	//UARTWrite(1, str);
+
+	sprintf(str, "Value %.2f\r\n", data);
+	UARTWrite(1, str);
+		
+		
+		
+
 	
-	
-	
+}
+
 }
