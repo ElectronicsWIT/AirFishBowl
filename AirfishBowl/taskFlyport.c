@@ -143,7 +143,23 @@ while(1)
 	//UARTWrite(1, str);
 		
 		
-		
+	//Ballast Control - Up Movement
+	if(myGlobal2 == 4)
+	{
+		work2 > right, work2--;//work2 = left - 0.5;
+		PWMDuty(work2, 2);
+		myGlobal2 = 0;
+	}
+	
+	//Ballast Control - Down Movement
+	if((myGlobal2 == 5))
+	{
+		//Down = 8ms
+		work2 = down; 
+		//work2 < down; //work2++) 
+		PWMDuty(work2, 2);
+		vTaskDelay(30); //used to slow down the effect
+	}	
 
 	
 	}
