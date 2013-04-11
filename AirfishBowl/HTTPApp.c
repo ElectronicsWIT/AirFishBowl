@@ -128,6 +128,29 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 				//PWMOn(d1out, 1);
 				break;
 		}
+
+		// The requested led is toggled
+		switch(*ptr) 
+		{
+			case '0':
+				IOPut(p17, On);
+				break;
+			case '1':
+				IOPut(p17, Off);
+				break;
+			case '2':
+				IOPut(p6, On);
+				break;
+			case '3':
+				IOPut(p6, Off);
+				break;
+			case '4':
+				IOPut(p21, On);
+				break;
+			case '5':
+				IOPut(p21, Off);
+				break;
+		}
 		
 	}
 	

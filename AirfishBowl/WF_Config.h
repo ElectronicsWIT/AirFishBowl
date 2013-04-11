@@ -95,13 +95,13 @@ extern int WFStatus;
 /*--------------------------------------------*/
 /* Default settings for Connection Management */
 /*--------------------------------------------*/
-#define MY_DEFAULT_SSID_NAME                "MOBProject"
+#define MY_DEFAULT_SSID_NAME                "Airfish"
 
-#define MY_DEFAULT_NETWORK_TYPE             WF_ADHOC   /* WF_INFRASTRUCTURE or WF_ADHOC     */
+#define MY_DEFAULT_NETWORK_TYPE             WF_INFRASTRUCTURE   /* WF_INFRASTRUCTURE or WF_ADHOC     */
 
 #define MY_DEFAULT_SCAN_TYPE                WF_ACTIVE_SCAN      /* WF_ACTIVE_SCAN or WF_PASSIVE_SCAN */
 
-#define MY_DEFAULT_CHANNEL_LIST             {1,2,3,4,5,6,7,8,9,10,11}            /* use {} to scan all channels       */
+#define MY_DEFAULT_CHANNEL_LIST             {}            /* use {} to scan all channels       */
 
 #define MY_DEFAULT_LIST_RETRY_COUNT         (3u)
 
@@ -113,7 +113,7 @@ extern int WFStatus;
 
 #define MY_DEFAULT_PS_POLL                   WF_DISABLED         /* WF_DISABLED or WF_ENABLED */
 
-#define MY_DEFAULT_WIFI_SECURITY_MODE        WF_SECURITY_OPEN
+#define MY_DEFAULT_WIFI_SECURITY_MODE        WF_SECURITY_WPA2_WITH_PASS_PHRASE
 
 //#define USE_MRF24W_HOST_BUFFER
 
@@ -151,7 +151,7 @@ extern int WFStatus;
 // "Microchip 802.11 Secret PSK Password".
 // The tool at http://www.wireshark.org/tools/wpa-psk.html can be used to generate this field. 
 
-#define MY_DEFAULT_PSK_PHRASE               "xxx"
+#define MY_DEFAULT_PSK_PHRASE               "airfishbowl"
 
 #define MY_DEFAULT_PSK "\
 \x00\x00\x00\x00\x00\x00\x00\x00\
@@ -164,7 +164,7 @@ extern int WFStatus;
 //-----------------------------------------------------------------------------------
 // Default WEP keys used in WF_SECURITY_WEP_40  and WF_SECURITY_WEP_104 security mode
 //-----------------------------------------------------------------------------------
-#define MY_DEFAULT_WEP_PHRASE           "xxx"
+#define MY_DEFAULT_WEP_PHRASE           "airfishbowl"
 
 // string 4 40-bit WEP keys -- corresponding to passphraseof "WEP Phrase"
 #define MY_DEFAULT_WEP_KEYS_40 "\
