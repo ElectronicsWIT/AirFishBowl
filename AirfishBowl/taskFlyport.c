@@ -99,14 +99,14 @@ while(1)
 			
 		//	PWMDuty(work2, 2);
 		//vTaskDelay(5); //used to slow down the effect
-		/*for (work = right; work < middle; work ++)
+		//for (work = right; work < middle; work ++)
 		//	{
 		//		PWMDuty(work, 2);
 		//		vTaskDelay(15); //used to slow down the effect
 		//	}
 		//	myGlobal2 = 0;
 		
-	}
+	//}
 	
 	
 	// Looks like this has not been implemented yet, commenting out
