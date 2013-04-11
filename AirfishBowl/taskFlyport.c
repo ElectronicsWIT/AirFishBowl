@@ -125,10 +125,26 @@ while(1)
 		//	}
 	//}
 	
-	
-	
-	
-	
+		
+	Fishmsg msg;
+	int i = 0;
+	char str[10];
+	double data = 0;
+	i = 0;
+		
+	xQueueReceive(xFlyportQueue,&msg,0);
+	i = msg.message_type;
+	data = msg.message_data;
+
+	//sprintf(str, "Value %d\r\n", i);
+	//UARTWrite(1, str);
+
+	sprintf(str, "Value %.2f\r\n", data);
+	UARTWrite(1, str);
+		
+		
+		
+
 	
 }
 
