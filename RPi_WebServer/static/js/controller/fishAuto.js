@@ -10,7 +10,7 @@
 *	//9 = sensor Data// IGNORE
 */
 var state = 1;
-window.setInterval(function(){alive()},1000);
+window.setInterval(function(){alive()},500);
 var busy = 0;
 
 
@@ -91,7 +91,8 @@ var prevAction = action;
 	// Up		= 4
 	// Down 	= 5
 	busy = 1;
-	console.log(action);
+	console.log("Action: " +action);
+	console.log("Cycles: " +cycles);
 	switch(action)
 	{
 		case 0:
@@ -101,15 +102,15 @@ var prevAction = action;
 			
 			if (cycles > 1 && cycles < 3)
 			{
-				choices = [0,2,3]
+				choices = [0,2,3];
 				action = choices[getRandom(0,2,1)];
 			}
-			else if (cycles == 3)
+			else if (cycles >= 3)
 			{
-				choices = [2,3]
+				choices = [2,3];
 				action = choices[getRandom(0,1,1)];
 			}
-			setTimeout(function(){busy = 0;},getRandom(2000,5000,0));
+			setTimeout(function(){busy = 0;},getRandom(1000,1500,0));
 			
 			if (action != prevAction)
 			{
@@ -124,17 +125,14 @@ var prevAction = action;
 			
 			if (cycles < 3)
 			{
-				choices = [0,2]
-				
+				choices = [0,2];
 				action = choices[getRandom(0,1,1)];
 			}
-			else if (cycles == 3)
+			else if (cycles >= 3)
 			{
-				choices = [0,2]
-				//newAJAXCommand('leds.cgi?led=2');
-				action = choices[getRandom(0,1,1)];
+				action = 0;
 			}
-			setTimeout(function(){busy = 0;},getRandom(2000,5000,0));
+			setTimeout(function(){busy = 0;},getRandom(1000,1500,0));
 			
 			if (action != prevAction)
 			{
@@ -149,17 +147,14 @@ var prevAction = action;
 			
 			if (cycles < 3)
 			{
-				choices = [0,3]
-				rand = getRandom(0,1,1);
-				console.log(rand)
-				action = choices[rand];
-			}
-			else if (cycles == 3)
-			{
-				choices = [0,3]
+				choices = [0,3];
 				action = choices[getRandom(0,1,1)];
 			}
-			setTimeout(function(){busy = 0;},getRandom(2000,5000,0));
+			else if (cycles >= 3)
+			{
+				action = 0;
+			}
+			setTimeout(function(){busy = 0;},getRandom(1000,1500,0));
 			
 			if (action != prevAction)
 			{
