@@ -36,6 +36,7 @@
   SECTION 	Include
 ****************************************************************************/
 
+#include "taskSensors.h"
 #include "TCPIP Stack/TCPIP.h"
 #if defined(STACK_USE_HTTP2_SERVER)
 #define __HTTPAPP_C
@@ -203,6 +204,10 @@ BYTE HTML_DOWN_ARROW[] = "dn";
 // asks for ~pot(num)~, this function is executed.
 void HTTPPrint_pot(WORD num)
 {
+	Fishmsg msg;
+	int i = 0;
+	char str[10];
+	double data = 0;
 	BYTE AN0String[8];
 	WORD ADval;
 
@@ -210,12 +215,7 @@ void HTTPPrint_pot(WORD num)
 	switch(num)
 	{
 		case 0:
-			Fishmsg msg;
-			int i = 0;
-			char str[10];
-			double data = 0;
-			i = 0;
-		
+			i=0;
 			xQueueReceive(xFlyportQueue,&msg,0);
 			i = msg.message_type;
 			data = msg.message_data;

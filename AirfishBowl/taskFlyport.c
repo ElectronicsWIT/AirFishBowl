@@ -91,75 +91,23 @@ while(1)
 	
 	}
 	
-	// Looks like this has not been implemented yet, commenting out
-	//if((myGlobal2 == 4))
-	//{
-		//Up
-		//work2 > right, work2--;)//work2 = left - 0.5;
-			
-		//	PWMDuty(work2, 2);
-		//vTaskDelay(5); //used to slow down the effect
-		//for (work = right; work < middle; work ++)
-		//	{
-		//		PWMDuty(work, 2);
-		//		vTaskDelay(15); //used to slow down the effect
-		//	}
-		//	myGlobal2 = 0;
-		
-	//}
-	
-	
-	// Looks like this has not been implemented yet, commenting out
-	//if((myGlobal2 == 5))
-	//{
-		//Down = 8ms
-		//work2 = down; 
-		//work2 < down; //work2++) 
-		//PWMDuty(work2, 2);
-		//vTaskDelay(30); //used to slow down the effect
-		
-		//for (work2 = right; work2 < middle; work2 ++)
-		//	{
-		//		PWMDuty(work2, 2);
-		//		vTaskDelay(15); //used to slow down the effect
-		//	}
-	//}
-	
-		
-	//Fishmsg msg;
-	//int i = 0;
-	//char str[10];
-	//double data = 0;
-	//i = 0;
-		
-	//xQueueReceive(xFlyportQueue,&msg,0);
-	//i = msg.message_type;
-	//data = msg.message_data;
-
-	//sprintf(str, "Value %d\r\n", i);
-	//UARTWrite(1, str);
-
-	//sprintf(str, "Value %.2f\r\n", data);
-	//UARTWrite(1, str);
-		
-		
 	//Ballast Control - Up Movement
-	if(myGlobal2 == 4)
-	{
-		work2 > right, work2--;//work2 = left - 0.5;
-		PWMDuty(work2, 2);
-		myGlobal2 = 0;
-	}
+	//if(myGlobal2 == 4)
+	//{
+	//	work2 > right, work2--;//work2 = left - 0.5;
+	//	PWMDuty(work2, 2);
+	//	myGlobal2 = 0;
+	//}
 	
 	//Ballast Control - Down Movement
-	if((myGlobal2 == 5))
-	{
-		//Down = 8ms
-		work2 = down; 
-		//work2 < down; //work2++) 
-		PWMDuty(work2, 2);
-		vTaskDelay(30); //used to slow down the effect
-	}	
+	//if((myGlobal2 == 5))
+	//{
+	//	Down = 8ms
+	//	work2 = down; 
+	//	work2 < down; //work2++) 
+	//	PWMDuty(work2, 2);
+	//	vTaskDelay(30); //used to slow down the effect
+	//}	
 
 	
 	}
