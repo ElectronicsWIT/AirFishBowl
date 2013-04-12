@@ -3,8 +3,8 @@ The AirFishBowl is a collaborative project between multiple undergraduate degree
 
 __Lecturer:__ Jason Berry
 
+__Project Wiki:__ [link](https://github.com/ElectronicsWIT/AirFishBowl/wiki "Project Wiki")
 
-This following graph attempts to explain the structure of the AirFishBowl system.
 
 ![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
 
