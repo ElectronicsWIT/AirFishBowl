@@ -27,88 +27,85 @@ PWMOn(d4out, 2);
 
 while(1)
 {
+	//Forward Movement
 	if((myGlobal == 0))
 	{
-		//forward
-		for (work = left; work > right; work--)
-			{
-			PWMDuty(work, 1);
-			vTaskDelay(5); //used to slow down the effect
-			}
-					vTaskDelay(50);
-		for (work = right; work < left; work ++)
-			{
-				PWMDuty(work, 1);
-				vTaskDelay(5); //used to slow down the effect
-			}
-			vTaskDelay(50); 
+	 for (work = left; work > right; work--)
+		{
+		PWMDuty(work, 1);
+		vTaskDelay(5); //used to slow down the effect
+		}
+		vTaskDelay(15);
+	 for (work = right; work < left; work ++)
+		{
+		PWMDuty(work, 1);
+		vTaskDelay(5); //used to slow down the effect
+		}
+		vTaskDelay(15); 
 	}
 	
+	//Stop 
 	if((myGlobal == 1))
 	{
-		//Stop
-		
-		PWMDuty(middle, 1);
-		vTaskDelay(10); //used to slow down the effect
-		
+	PWMDuty(middle, 1);
+	vTaskDelay(10); //used to slow down the effect
 	}
 	
+	//Left Movement
 	if((myGlobal == 2))
 	{
-		//Left
-		for (work = middle; work < left; work++)
-		{
-			PWMDuty(work, 1);
-			vTaskDelay(15); //used to slow down the effect
+	 for (work = middle; work < left; work++)
+	    {
+	    PWMDuty(work, 1);
+	    vTaskDelay(15); //used to slow down the effect
 		}
-		for (work = left; work > middle; work --)
+	 for (work = left; work > middle; work --)
 		{
-				PWMDuty(work, 1);
-				vTaskDelay(15); //used to slow down the effect
+		PWMDuty(work, 1);
+		vTaskDelay(15); //used to slow down the effect
 		}
 	}
 	
-	
+	//Right Movement
 	if((myGlobal == 3))
 	{
-		//right
-		for (work = middle; work > right; work--)
+	 for (work = middle; work > right; work--)
 		{
-			PWMDuty(work, 1);
-			vTaskDelay(15); //used to slow down the effect
+		PWMDuty(work, 1);
+		vTaskDelay(15); //used to slow down the effect
 		}
-		for (work = right; work < middle; work ++)
+	 for (work = right; work < middle; work ++)
 		{
-				PWMDuty(work, 1);
-				vTaskDelay(15); //used to slow down the effect
+		PWMDuty(work, 1);
+		vTaskDelay(15); //used to slow down the effect
 		}
 	}
-	
-	
 	
 	if((myGlobal2 == 0))
 	{
-	
+	//Dummy function
 	}
 	
 	//Ballast Control - Up Movement
-	//if(myGlobal2 == 4)
-	//{
-	//	work2 > right, work2--;//work2 = left - 0.5;
-	//	PWMDuty(work2, 2);
-	//	myGlobal2 = 0;
-	//}
+	if(myGlobal2 == 4)
+	{
+		if(work2 > right)
+			work2--;//work2 = left - 0.5;
+			
+		PWMDuty(work2, 2);
+		myGlobal2 = 0;
+	}
 	
 	//Ballast Control - Down Movement
-	//if((myGlobal2 == 5))
-	//{
-	//	Down = 8ms
-	//	work2 = down; 
-	//	work2 < down; //work2++) 
-	//	PWMDuty(work2, 2);
-	//	vTaskDelay(30); //used to slow down the effect
-	//}	
-
-	
+	if((myGlobal2 == 5))
+	{
+		//Down = 8ms
+		work2 = down; 
+		//work2 < down; //work2++) 
+		PWMDuty(work2, 2);
+		vTaskDelay(30); //used to slow down the effect
 	}
+	
+}
+
 }
