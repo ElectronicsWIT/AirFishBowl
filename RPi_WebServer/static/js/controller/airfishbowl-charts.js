@@ -170,8 +170,8 @@ chart1 = new Highcharts.Chart({
                 i;
             for (i = -19; i <= 0; i++) {
                 data.push({
-                    x: time + i * 1000,
-                    y: Math.random()
+                    x: time,
+                    y: 0
                 });
             }
             return data;
@@ -247,12 +247,25 @@ chart2 = new Highcharts.Chart({
     },
     series: [{
         name: 'Sensor 2'
-        }]
+        data: (function() {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+            for (i = -19; i <= 0; i++) {
+                data.push({
+                    x: time,
+                    y: 0
+                });
+            }
+            return data;
+        })()}]
   });
 
 });
 
 function updateCharts(xmlData) {
     var data = getXMLValue(xmlData, 'pot0');
+    console.log(data);
     chart1.series[0].addPoint([(new Date()).getTime(),data],true,true);
 }
