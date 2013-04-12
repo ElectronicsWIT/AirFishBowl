@@ -20,9 +20,9 @@ The AirFishBowl project repository contains the following directories:
 
 
 
-*AirfishBowl* Contains the OpenPicus Project for the AirfishBowl Fish
-*Kinect* Contains the C# Microsoft Kinect application for interacting with the AirfishBowl REST API
-*RPi_Webserver* Contains the Django WebApp which can be run on the Raspberry Pi and acts as a front end for the AirfishBowl system.
+    *AirfishBowl* Contains the OpenPicus Project for the AirfishBowl Fish
+    *Kinect* Contains the C# Microsoft Kinect application for interacting with the AirfishBowl REST API
+    *RPi_Webserver* Contains the Django WebApp which can be run on the Raspberry Pi and acts as a front end for the AirfishBowl system.
 
 ### Github Pages
 Github offer the means to host a simple HTML site at: http://username.github.com/repositoryname/
