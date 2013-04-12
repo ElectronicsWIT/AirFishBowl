@@ -89,7 +89,7 @@ div.clear {
 	height: 100%;
 	width: 200px;
 }
-.controller-arrows-left, .controller-arrows-right, .controller-arrows-up, .controller-arrows-down {
+.controller-arrows-left, .controller-arrows-right, .controller-arrows-up, .controller-arrows-down, .controller-on, .controller-stop, .controller-alive {
 	position: absolute;
 	height: 53px;
 	width: 58px;
@@ -98,10 +98,14 @@ div.clear {
 	border-radius: 5px;
 	box-shadow: 0 0 10px 0 hsla(0,0%,0%,.25);
 }
-	.controller-arrows-left:hover, .controller-arrows-right:hover, .controller-arrows-up:hover, .controller-arrows-down:hover {
+	.controller-arrows-left:hover, .controller-arrows-right:hover, .controller-arrows-up:hover, .controller-arrows-down:hover, .controller-on:hover, .controller-stop:hover, .controller-alive:hover {
 		background: #CCC;
 		border: 1px solid #AAA;
 	}
+.controller-on, .controller-stop, .controller-alive {
+	float:right;
+	margin: 5px 5px 0 0;
+}
 .controller-arrows-up {
 	left: 70px;
 	top: 0;

@@ -9,7 +9,7 @@
 *
 *	//9 = sensor Data// IGNORE
 */
-var state = 1;
+var state = 0;
 window.setInterval(function(){alive()},500);
 var busy = 0;
 
