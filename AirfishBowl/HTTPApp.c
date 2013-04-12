@@ -208,28 +208,34 @@ void HTTPPrint_pot(WORD num)
 	WORD ADval;
 	Fishmsg msg;
 	int i = 0;
-	char str[10];
-	double data = 0;
+	//char str[8];
+	int data = 0;
 
 	// Analog values reading according to the webpage request.
-	if(num = 0)
+	if(num == 0)
 	{
 			xQueueReceive(xFlyportQueue,&msg,0);
 			i = msg.message_type;
 			data = msg.message_data;
-
+			
 			//sprintf(str, "Value %d\r\n", i);
 			//UARTWrite(1, str);
-
-			sprintf(str, "Value %.2f\r\n", data);
-			UARTWrite(1, str);
+			
+			sprintf(AN0String, "%f", data);
+			//UARTWrite(1, str);
 	
-			uitoa(data, (BYTE*)AN0String);
+			//uitoa(data, (BYTE*)AN0String);
 	}
 	else if(num == 1)
 	{
-			ADval = ADCVal(2);
-			uitoa(ADval, (BYTE*)AN0String);	
+			xQueueReceive(xFlyportQueue,&msg,0);
+			i = msg.message_type;
+			data = msg.message_data;
+			
+			//sprintf(str, "Value %d\r\n", i);
+			//UARTWrite(1, str);
+			
+			sprintf(AN0String, "%f", data);
 	}
 
 	// After the analog value is read, it is sent to the webpage
