@@ -155,7 +155,7 @@ $('.controller-alive').mouseup(function() {
 
 
 //Add timeout to update charts
-setTimeout("newAJAXCommand('status.xml', updateCharts, true)",500);
+//setTimeout("newAJAXCommand('status.xml', updateCharts, true)",500);
 
 
 });
