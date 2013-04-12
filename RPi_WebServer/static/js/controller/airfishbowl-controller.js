@@ -128,7 +128,7 @@ $('.controller-arrows-down').mouseup(function() {
 /* ON click */
 $('.controller-on').mousedown(function() {
   $('.controller-on').addClass('controller-arrows-pressed');
-  newAJAXCommand('leds.cgi?led=1');
+  newAJAXCommand('leds.cgi?led=0');
 });
 $('.controller-on').mouseup(function() {
   $('.controller-on').removeClass('controller-arrows-pressed');
@@ -137,7 +137,7 @@ $('.controller-on').mouseup(function() {
 /* OFF click */
 $('.controller-stop').mousedown(function() {
   $('.controller-stop').addClass('controller-arrows-pressed');
-  newAJAXCommand('leds.cgi?led=0');
+  newAJAXCommand('leds.cgi?led=1');
   setState(0);
 });
 $('.controller-stop').mouseup(function() {
