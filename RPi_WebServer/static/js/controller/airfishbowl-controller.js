@@ -153,6 +153,11 @@ $('.controller-alive').mouseup(function() {
   $('.controller-alive').removeClass('controller-arrows-pressed');
 });
 
+
+//Add timeout to update charts
+setTimeout("newAJAXCommand('status.xml', updateCharts, true)",500);
+
+
 });
 
 
