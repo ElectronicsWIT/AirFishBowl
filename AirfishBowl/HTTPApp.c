@@ -206,15 +206,14 @@ void HTTPPrint_pot(WORD num)
 {
 	BYTE AN0String[8];
 	WORD ADval;
+	Fishmsg msg;
+	int i = 0;
+	char str[10];
+	double data = 0;
 
 	// Analog values reading according to the webpage request.
 	if(num = 0)
 	{
-			Fishmsg msg;
-			int i = 0;
-			char str[10];
-			double data = 0;
-
 			xQueueReceive(xFlyportQueue,&msg,0);
 			i = msg.message_type;
 			data = msg.message_data;
