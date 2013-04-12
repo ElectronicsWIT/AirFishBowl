@@ -246,7 +246,7 @@ chart2 = new Highcharts.Chart({
         }
     },
     series: [{
-        name: 'Sensor 2'
+        name: 'Sensor 2',
         data: (function() {
             // generate an array of random data
             var data = [],
@@ -266,6 +266,5 @@ chart2 = new Highcharts.Chart({
 
 function updateCharts(xmlData) {
     var data = getXMLValue(xmlData, 'pot0');
-    console.log(data);
     chart1.series[0].addPoint([(new Date()).getTime(),data],true,true);
 }
