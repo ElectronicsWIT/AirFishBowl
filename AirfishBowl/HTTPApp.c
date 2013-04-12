@@ -204,18 +204,17 @@ BYTE HTML_DOWN_ARROW[] = "dn";
 // asks for ~pot(num)~, this function is executed.
 void HTTPPrint_pot(WORD num)
 {
-	Fishmsg msg;
-	int i = 0;
-	char str[10];
-	double data = 0;
 	BYTE AN0String[8];
 	WORD ADval;
 
 	// Analog values reading according to the webpage request.
-	switch(num)
+	if(num = 0)
 	{
-		case 0:
-			i=0;
+			Fishmsg msg;
+			int i = 0;
+			char str[10];
+			double data = 0;
+
 			xQueueReceive(xFlyportQueue,&msg,0);
 			i = msg.message_type;
 			data = msg.message_data;
@@ -227,11 +226,11 @@ void HTTPPrint_pot(WORD num)
 			UARTWrite(1, str);
 	
 			uitoa(data, (BYTE*)AN0String);
-			break;
-		case 1:
+	}
+	else if(num == 1)
+	{
 			ADval = ADCVal(2);
-			uitoa(ADval, (BYTE*)AN0String);
-			break;	
+			uitoa(ADval, (BYTE*)AN0String);	
 	}
 
 	// After the analog value is read, it is sent to the webpage

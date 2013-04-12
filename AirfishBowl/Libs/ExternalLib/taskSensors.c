@@ -22,6 +22,7 @@ void SensorsTask()
 	
 	while(1){
 		
+		/*
 		// get front distance measurement
 		measVal = 12.34;	// dummy value
 		front.message_type = FRONT_DIST_MEAS;
@@ -52,11 +53,20 @@ void SensorsTask()
 		current.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &current, ( portTickType ) 1);
 		
+		*/
+		
+		
+		
+		
 		// get voltage measurement
 		measVal = ReadPower(2);	// case 2 is current
 		voltage.message_type = VOLT_MEAS;
 		voltage.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &voltage, ( portTickType ) 1);
+		
+
+		
+
 		
 		vTaskDelay(10);
 	}
@@ -73,53 +83,39 @@ double ReadDist(int ADCPin)
 
 double ReadPower(int choice)
 {	
-	double meas = 0;
+	double meas = 0.0;
+	int reading = 0;
+	int total = 0;
+	int counter = 0;
+	int average = 0;
+	int answer = 0;
+	int answer1 = 0;
 	
-	switch(choice)
+	if(choice == 1)
 	{
-		case 1:		// current measurement
+		for(counter = 0; counter < 50; counter++)
 		{
-			int reading = 0;
-			int total = 0;
-			int counter = 0;
-			int count = 50;
-			int average = 0;
-			int answer = 0;
-			int answer1 = 0;
-
-			total = 0;
-			for(counter= 0; counter<count; counter++)
-			{
-				reading = ADCVal(1);
-				if(reading<1000)
-					total = total + reading;
-			}
-			
-			average = total/count;
-			answer = (average-45)*2;
-			if(answer<1)
-				answer = 0;
-				
-			//code below for reading in hours...
-			if(answer>0)
-			{
-				answer1 = 300/answer;
-			}
-			else 
-			{	
-				answer1 = 300;
-			}
-			// send it to the serial port (as ASCII digits)
-			total = 0;
-			//wait 1 ms for next reading
-			vTaskDelay(100);
-			meas = average;
-	
-			break;
+			reading = ADCVal(1);
+			if(reading < 1000)
+				total +=  reading; //total + reading;
 		}
-		case 2:		// voltage measurement
-			meas = ADCVal(2)* 0.004;
-		break;	
+		
+		average = total / 50;
+		
+		average = 5;
+		
+		//answer = (average - 45) * 2;
+		//if(answer < 1)
+		//	answer = 0;
+		//wait 1 ms for next reading
+		//vTaskDelay(100);
+		meas = average;
+			
+	}
+	else if(choice == 2)
+	{
+		// voltage measurement
+		meas = ADCVal(2)* 0.004;
 	}
 	
 	return meas;
