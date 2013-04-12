@@ -1,3 +1,4 @@
+#include "FreeRTOS.h"
 #include "queue.h"
 
 #ifndef UTILITIES_ELECTRONICS_WIT
