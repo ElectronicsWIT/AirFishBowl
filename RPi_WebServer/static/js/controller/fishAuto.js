@@ -97,7 +97,7 @@ var prevAction = action;
 	{
 		case 0:
 			cycles++;
-			//newAJAXCommand('leds.cgi?led=0');
+			newAJAXCommand('leds.cgi?led=0');
 			console.log("forward");
 			
 			if (cycles > 1 && cycles < 3)
@@ -120,7 +120,7 @@ var prevAction = action;
 		
 		case 2:
 			cycles++;
-			//newAJAXCommand('leds.cgi?led=2');
+			newAJAXCommand('leds.cgi?led=2');
 			console.log("left");
 			
 			if (cycles < 3)
@@ -142,7 +142,7 @@ var prevAction = action;
 		
 		case 3:
 			cycles++;
-			//newAJAXCommand('leds.cgi?led=3');
+			newAJAXCommand('leds.cgi?led=3');
 			console.log("right");
 			
 			if (cycles < 3)
