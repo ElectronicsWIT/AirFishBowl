@@ -1,10 +1,9 @@
-![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-logo-main.png)
+## AirFishBowl
+The AirFishBowl is a collaborative project between multiple undergraduate degrees at the _Waterford Institute of Technology, Ireland_.
 
-Who are we? What are we making?
-Write up some nice information and introduction for the project!
+    __Lecturer:__ Jason Berry
 
 
-### AirFishBowl System Design
 This following graph attempts to explain the structure of the AirFishBowl system.
 
 ![AirfishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
