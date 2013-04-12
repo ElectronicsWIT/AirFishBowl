@@ -105,6 +105,8 @@ div.clear {
 .controller-on, .controller-stop, .controller-alive {
 	float:right;
 	margin: 5px 5px 0 0;
+	position: relative;
+	clear: right;
 }
 .controller-arrows-up {
 	left: 70px;
