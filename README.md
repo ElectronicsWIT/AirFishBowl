@@ -1,7 +1,7 @@
 ## AirFishBowl
 The AirFishBowl is a collaborative project between multiple undergraduate degrees at the _Waterford Institute of Technology, Ireland_.
 
-    __Lecturer:__ Jason Berry
+__Lecturer:__ Jason Berry
 
 
 This following graph attempts to explain the structure of the AirFishBowl system.
