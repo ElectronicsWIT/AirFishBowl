@@ -57,7 +57,7 @@ void SensorsTask()
 		*/
 		
 		// get voltage measurement
-		measVal = ReadPower(2);	// case 2 is current
+		measVal = ReadPower(2);	// case 2 is voltage
 		voltage.message_type = VOLT_MEAS;
 		voltage.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &voltage, ( portTickType ) 1);
