@@ -41,6 +41,11 @@
 #if defined(STACK_USE_HTTP2_SERVER)
 #define __HTTPAPP_C
 
+/*
+   Extended by the members of the AirFishBowl team
+*/
+
+
 /****************Global Variables*********************/
 extern xQueueHandle xFlyportQueue; 
 int myGlobal = 1;
@@ -221,9 +226,6 @@ void HTTPPrint_pot(WORD num)
 			//UARTWrite(1, str);
 
 			sprintf(AN0String, "%f", data);
-			//UARTWrite(1, str);
-
-			//uitoa(data, (BYTE*)AN0String);
 	}
 	else if(num == 1)
 	{
