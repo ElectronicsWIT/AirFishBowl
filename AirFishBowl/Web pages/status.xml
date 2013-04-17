@@ -1,0 +1,14 @@
+<response>
+<led0>~led(0)~</led0>
+<led1>~led(1)~</led1>
+<led2>~led(2)~</led2>
+<led3>~led(3)~</led3>
+<led4>~led(4)~</led4>
+<btn0>~btn(0)~</btn0>
+<btn1>~btn(1)~</btn1>
+<btn2>~btn(2)~</btn2>
+<btn3>~btn(3)~</btn3>
+<btn4>~btn(4)~</btn4>
+<pot0>~pot(0)~</pot0>
+<pot1>~pot(1)~</pot1>
+</response>
