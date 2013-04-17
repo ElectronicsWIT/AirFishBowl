@@ -1,14 +1,12 @@
 #include "taskSensors.h"
 
-#define	FRONT_DIST_MEAS	2001
-#define	LS_DIST_MEAS	2002
-#define	RS_DIST_MEAS	2003
+#define	FRONT_DIST_MEAS		2001
+#define	LS_DIST_MEAS		2002
+#define	RS_DIST_MEAS		2003
 #define HEIGHT_MEAS		2004
 #define	CURR_MEAS		2005
 #define VOLT_MEAS		2006
 
-double ReadDist(int ADCPin);
-double ReadPower(int choice);
 
 /*
 	Applied Electronics, Applied Operating Systems
@@ -22,8 +20,10 @@ void SensorsTask()
 	
 	while(1){
 		
+		/*
+		// Currently not implemented due to lack of ADC inputs on the OpenPicus FlyPort
 		// get front distance measurement
-		measVal = 12.34;	// dummy value
+		 measVal = 12.34;	// dummy value
 		front.message_type = FRONT_DIST_MEAS;
 		front.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &front, ( portTickType ) 1);
@@ -39,28 +39,28 @@ void SensorsTask()
 		right.message_type = RS_DIST_MEAS;
 		right.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &right, ( portTickType ) 1);
-		
+		*/		
+
 		// get height measurement
 		measVal = ReadDist(3);	// height sensor connected to ADC3 input (pin 20)
 		height.message_type = HEIGHT_MEAS;
 		height.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &height, ( portTickType ) 1);
 		
+		/*
+		// Not fully implemented
 		// get current measurement
 		measVal = ReadPower(1);	// case 1 is current
 		current.message_type = CURR_MEAS;
 		current.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &current, ( portTickType ) 1);
-		
+		*/
 		
 		// get voltage measurement
 		measVal = ReadPower(2);	// case 2 is current
 		voltage.message_type = VOLT_MEAS;
 		voltage.message_data = measVal;
 		xQueueSendToBack(xFlyportQueue, ( void * ) &voltage, ( portTickType ) 1);
-		
-		
-		vTaskDelay(10);
 	}
 }
 
@@ -94,13 +94,10 @@ double ReadPower(int choice)
 		
 		average = total / 50;
 		
-		average = 5;
-		
-		//answer = (average - 45) * 2;
-		//if(answer < 1)
-		//	answer = 0;
-		//wait 1 ms for next reading
-		//vTaskDelay(100);
+		answer = (average - 45) * 2;
+		if(answer < 1)
+			answer = 0;
+
 		meas = average;
 			
 	}

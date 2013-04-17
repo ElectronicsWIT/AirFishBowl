@@ -15,5 +15,7 @@ extern xQueueHandle xFlyportQueue;
 
 // Function prototype
 void SensorsTask();
+double ReadDist(int ADCPin);
+double ReadPower(int choice);
 
 #endif
