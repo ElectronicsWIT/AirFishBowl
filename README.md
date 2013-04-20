@@ -13,8 +13,9 @@ The AirFishBowl is a collaborative project between multiple undergraduate degree
 The AirFishBowl project repository contains the following directories:
 
     .
-    ├── AirFishBowl 
-    ├── AirFishBowl-iOS
+    ├── AirFishBowl-iOS 
+    ├── AirFishBowl-REST-API-Mock
+    ├── AirFishBowl
     ├── Branding
     ├── Kinect
     └── RPi_WebServer
@@ -22,7 +23,8 @@ The AirFishBowl project repository contains the following directories:
 
 
 - __AirFishBowl-iOS__ Coming soon (TM)
+- __AirFishBowl-REST-API-Mock__ Contains a mock for the AirFishBowl REST API which can be used to test interfaces for the system
 - __AirFishBowl__ Contains the OpenPicus Project for the AirFishBowl Fish
 - __Branding__ Contains the Branding assets used by the AirFishBowl project
 - __Kinect__ Contains the C# Microsoft Kinect application for interacting with the AirFishBowl REST API
-- __RPi_Webserver__ Contains the Django WebApp which can be run on the Raspberry Pi and acts as a front end for the AirFishBowl system.
+- __RPi_Webserver__ Contains the Django WebApp which can be run on the Raspberry Pi and acts as a front end for the AirFishBowl system
