@@ -1,5 +1,9 @@
 ## AirFishBowl
-The AirFishBowl is a collaborative project between multiple undergraduate degrees at the _Waterford Institute of Technology, Ireland_.
+The AirFishBowl is a remote controllable / autonomous helium air blimp in the shape of a fish. It is powered using an OpenPicus 
+Flyport microcontroller and has a beautifully designed interface which is served from a Raspberry Pi. The system has a simple 
+HTTP REST API for which we have multiple implemented controllers such as the Javascript autonomous Alive system, the Kinect 
+controller, directly from the HTTP interface and even iOS app. The system is a collaborative project between multiple 
+undergraduate degrees in the schools of Engineering and Science at the _Waterford Institute of Technology, Ireland_.
 
 - __Lecturer:__ Jason Berry
 - __Project Blog:__ [link](http://www.airfishbowl.com "Project Blog")
