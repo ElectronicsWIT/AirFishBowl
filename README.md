@@ -10,8 +10,10 @@ undergraduate degrees in the schools of Engineering and Science at the _Waterfor
 - __Project Wiki:__ [link](https://github.com/ElectronicsWIT/AirFishBowl/wiki "Project Wiki")
 
 
-![AirFishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-task-layout.png)
+![AirFishBowl](http://electronicswit.github.com/AirFishBowl/airfish-architecture.png)
 
+
+![AirFishBowl](http://electronicswit.github.com/AirFishBowl/airfishbowl-software-architecture.png)
 
 ### Contents
 The AirFishBowl project repository contains the following directories:
