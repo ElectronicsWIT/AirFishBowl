@@ -44,7 +44,14 @@ class Airfish < Sinatra::Base
 
   get '/leds.cgi' do
     val = params[:led]
-    unless val.nil? then puts val; end
+    unless val.nil?
+      if val.to_i == 0 then puts "Forward"; end
+      if val.to_i == 1 then puts "Stop"; end
+      if val.to_i == 3 then puts "Left"; end
+      if val.to_i == 2 then puts "Right"; end
+      if val.to_i == 4 then puts "Pitch Up"; end
+      if val.to_i == 5 then puts "Pitch Down"; end
+    end
     "Success! #{val}"
   end
 
