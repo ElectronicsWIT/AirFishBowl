@@ -25,7 +25,7 @@ The AirFishBowl project repository contains the following directories:
 
 
 
-- __AirFishBowl-iOS__ Coming soon (TM)
+- __AirFishBowl-iOS__ native iOS application remote control for the AirFishBowl
 - __AirFishBowl-REST-API-Mock__ Contains a mock for the AirFishBowl REST API which can be used to test interfaces for the system
 - __AirFishBowl__ Contains the OpenPicus Project for the AirFishBowl Fish
 - __Branding__ Contains the Branding assets used by the AirFishBowl project
