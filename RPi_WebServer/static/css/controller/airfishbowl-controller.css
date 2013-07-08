@@ -109,6 +109,15 @@ div.clear {
 	clear: right;
 	z-index: 2;
 }
+.controller-arrows-left p, .controller-arrows-right p, .controller-arrows-up p, .controller-arrows-down p, .controller-on p, .controller-stop p, .controller-alive p {
+	width: 100%;
+	text-align: center;
+	margin: 15px 0 0 -1px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #555;
+}
+
 .controller-arrows-up {
 	left: 70px;
 	top: 0;
@@ -159,5 +168,164 @@ div.clear {
  
 /* Landscape phones and down */
 @media (max-width: 979px) {
+body {
+	background-image: url('../../img/background2.jpg');
+}
+div.clear {
+    clear:both;
+}
 
+.container {
+	background-color: #FFF;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5%;
+	width: 90%;
+}
+
+.header-img {
+	margin: 0 0 0px 0;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+}
+.footer-img {
+	margin: 0 0 0px 0;
+	box-shadow: 0 0 50px 0 hsla(0,0%,0%,.25);
+	display: none;
+}
+
+.controller-outer {
+	border: 0;
+	border-top: 4px solid #FFF;
+	border-bottom: 4px solid #FFF;
+	margin: 0;
+	padding: 0;
+}
+.controller-left, .controller-right {
+	height: 300px;
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+.controller-left {
+	display: none;
+}
+.controller-right {
+	position: relative;
+	background-image: url('../../img/controller/arrows_bk_grad.png');
+	background-position: -300px -300px;
+
+	-webkit-transition: all .25s ease;
+	   -moz-transition: all .25s ease;
+	    -ms-transition: all .25s ease;
+	     -o-transition: all .25s ease;
+	        transition: all .25s ease;
+}
+	.controller-right.pressed-left {
+		background-position: 0 -300px;
+	}
+	.controller-right.pressed-right {
+		background-position: -600px -300px;
+	}
+	.controller-right.pressed-up {
+		background-position: -300px 0;
+	}
+	.controller-right.pressed-down {
+		background-position: -300px -600px;
+	}
+
+.controller-down {
+	position: relative;
+	width: 920px;
+	padding: 10px;
+	float: left;
+	margin: 0;
+	background: #222;
+	margin-top: 4px;
+	display: none;
+}
+
+.controller-arrows-outer {
+	position: absolute;
+	top: 50%;
+	margin: -60px 0 0 0;
+	height: 120px;
+	width: 100%;
+	
+}
+.controller-arrows-inner {
+	position: relative;
+	margin: auto;
+	height: 100%;
+	width: 200px;
+}
+.controller-arrows-left, .controller-arrows-right, .controller-arrows-up, .controller-arrows-down, .controller-on, .controller-stop, .controller-alive {
+	position: absolute;
+	height: 53px;
+	width: 58px;
+	background: white;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	box-shadow: 0 0 10px 0 hsla(0,0%,0%,.25);
+}
+	.controller-arrows-left:hover, .controller-arrows-right:hover, .controller-arrows-up:hover, .controller-arrows-down:hover, .controller-on:hover, .controller-stop:hover, .controller-alive:hover {
+		background: #CCC;
+		border: 1px solid #AAA;
+	}
+.controller-on, .controller-stop, .controller-alive {
+	float:right;
+	margin: 10px 10px 0 0;
+	position: relative;
+	clear: none;
+	z-index: 2;
+}
+.controller-arrows-left p, .controller-arrows-right p, .controller-arrows-up p, .controller-arrows-down p, .controller-on p, .controller-stop p, .controller-alive p {
+	width: 100%;
+	text-align: center;
+	margin: 15px 0 0 -1px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #555;
+}
+
+.controller-arrows-up {
+	left: 70px;
+	top: 0;
+}
+.controller-arrows-down {
+	left: 70px;
+	bottom: 0;
+}
+.controller-arrows-left {
+	top: 65px;
+	left: 0;
+}
+.controller-arrows-right {
+	top: 65px;
+	right: 0;
+}
+.controller-arrows-pressed {
+	background: #8de820 !important;
+	border: 1px solid #AAA;
+}
+
+.controller-console {
+	position: absolute;
+	bottom: 0;
+	margin: 10px;
+	color: #CCC;
+	font-size: 8pt;
+	background: black;
+	padding: 10px;
+	height: 210px;
+	width: 429px;
+	display: none;
+}
+
+#chart1, #chart2, #chart3, #chart4 {
+	height: 200px;
+	width: 449px;
+	float: left;
+	display: none;
+}
 }
