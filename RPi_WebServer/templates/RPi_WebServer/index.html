@@ -4,7 +4,7 @@
 	{{ block.super }}
 {% endblock %}
 {% block content %}
-	<a href="http://fish1/" class="fish-entry span12">
+	<a href="http://192.168.10.4/" class="fish-entry span12">
 	<div class="fish-entry-container">
 			<h3>Airfish 0x00</h3>
 			<p class="fish-entry-status">Status: <strong class="strong-connected">Connected</strong></p>
@@ -15,7 +15,15 @@
 	<a href="#" class="fish-entry span12">
 		<div class="fish-entry-container">
 			<h3>Airfish 0x01</h3>
-			<p class="fish-entry-status">Status: <strong class="strong-connected">Connected</strong></p>
+			<p class="fish-entry-status">Status: <strong class="strong-connected">Disconnected</strong></p>
+			<img class="fish-entry-arrows" src="{{ STATIC_URL }}img/entries_arrows_right.png"/>
+		</div>
+	</a>
+
+	<a href="#" class="fish-entry span12">
+		<div class="fish-entry-container">
+			<h3>Airfish 0x02</h3>
+			<p class="fish-entry-status">Status: <strong class="strong-connected">Disconnected</strong></p>
 			<img class="fish-entry-arrows" src="{{ STATIC_URL }}img/entries_arrows_right.png"/>
 		</div>
 	</a>
