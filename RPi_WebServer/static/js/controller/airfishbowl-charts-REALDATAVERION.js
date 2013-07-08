@@ -104,13 +104,13 @@ chart1 = new Highcharts.Chart({
             load: function() {
 
                 // set up the updating of the chart each second
-                var series = this.series[0];
+                /*var series = this.series[0];
                 setInterval(function() {
                     var x = (new Date()).getTime(),
                         // current time
                         y = Math.random();
                     series.addPoint([x, y], true, true);
-                }, 1000);
+                }, 1000);*/
             }
         }
     },
@@ -147,7 +147,7 @@ chart1 = new Highcharts.Chart({
     plotOptions: {
         spline: {
             dataLabels: {
-                enabled: false,
+                enabled: true,
                 formatter: function() {
                     // return this.series.name;
                     if (!this.series.inc) this.series.inc = 1;
@@ -188,13 +188,13 @@ chart2 = new Highcharts.Chart({
             load: function() {
 
                 // set up the updating of the chart each second
-                var series = this.series[0];
+                /*var series = this.series[0];
                 setInterval(function() {
                     var x = (new Date()).getTime(),
                         // current time
                         y = Math.random();
                     series.addPoint([x, y], true, true);
-                }, 1000);
+                }, 1000);*/
             }
         }
     },
@@ -231,7 +231,7 @@ chart2 = new Highcharts.Chart({
     plotOptions: {
         spline: {
             dataLabels: {
-                enabled: false,
+                enabled: true,
                 formatter: function() {
                     // return this.series.name;
                     if (!this.series.inc) this.series.inc = 1;
